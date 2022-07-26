@@ -25,7 +25,7 @@ function App() {
     <div className="App">
         <Container>
             {
-                users.map(function({first_name, last_name, id}){
+                users.map(function({first_name, last_name, id, grade}){
                     return (
                         <Row key={id}>
                             <Col>
@@ -33,6 +33,9 @@ function App() {
                             </Col>
                             <Col>
                                 <div>{last_name}</div>
+                            </Col>
+                            <Col>
+                                <div>{grade}</div>
                             </Col>
                         </Row>
                     )
