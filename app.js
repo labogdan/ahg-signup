@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const path = require("path");
 const feedRoutes = require('./routes');
 
 const app = express();
@@ -8,8 +8,6 @@ const PORT = process.env.PORT || 8080;
 
 // application/json
 app.use(bodyParser.json());
-
-app.use(express.static('build'));
 
 // to get access to the server from any domain like postman.
 app.use((req, res, next) => {
@@ -21,6 +19,7 @@ app.use((req, res, next) => {
 
 //declaration of the routes.
 app.use('/feed', feedRoutes);
+app.use(express.static(path.resolve(__dirname, "./frontend/build")));
 
 
 app.listen(PORT);
