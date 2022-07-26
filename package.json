@@ -4,7 +4,7 @@
   "description": "A sample Node.js app using Express 4",
   "scripts": {
     "start": "node app.js",
-    "heroku-postbuild": "cd ./frontend && npm install && npm run build"
+    "heroku-postbuild": "ll && cd ./frontend && npm install && npm run build"
   },
   "dependencies": {
     "express": "^4.18.1",
