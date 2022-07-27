@@ -16,7 +16,6 @@ exports.getUsers = (req, res, next) => {
     pool.query(getString) // send query to select all rows from the 'my_activities' table
         .then(results => {
             let users = results.rows;
-            console.log(users);
             res.json({ users })
         })
         .catch(err => console.log(err));
@@ -40,11 +39,22 @@ exports.getUsers = (req, res, next) => {
 };
 
 exports.createUser = (req, res, next) => {
-    const title = req.body.title;
-    const content = req.body.content;
+
+    const user = [ req.body ]
+    const addString = 'INSERT INTO users (first_name, last_name, age, grade) VALUES ($1, $2, $3, $4)';
+
+    console.log(user);
+
+    pool.query(addString, user[[0]])
+        .then(result => res.json(result))
+        .catch(err => console.log(err));
+
     // Create post in db
+    /*const title = req.body.title;
+    const content = req.body.content;
+
     res.status(201).json({
         message: 'Post created successfully!',
         post: { id: new Date().toISOString(), title: title, content: content }
-    });
+    });*/
 };

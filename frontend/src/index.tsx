@@ -1,19 +1,38 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Auth0Provider } from "@auth0/auth0-react";
+import { withAuthenticationRequired } from "@auth0/auth0-react";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import UserForm from "./UserForm";
+import DisplayUsers from "./DisplayUsers";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+
+// @ts-ignore
+/*export const ProtectedRoute = ({ component }) => {
+    const Component = withAuthenticationRequired(component, {
+    });
+    return <Component />;
+};*/
+
+const domain = process.env.REACT_APP_AUTH0_DOMAIN || ''
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID || ''
+
+ReactDOM.render(
+    <Auth0Provider
+        domain={domain}
+        clientId={clientId}
+        redirectUri={process.env.REACT_APP_AUTH0_REDIRECT_URI}
+    >
+    <Router>
+        <Routes>
+            <Route path="/" element={<UserForm />} />
+            <Route path="admin" element={<DisplayUsers />} />
+        </Routes>
+    </Router>
+    </Auth0Provider>,
+    document.getElementById("root")
+)
