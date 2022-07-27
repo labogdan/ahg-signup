@@ -66,10 +66,6 @@ const DisplayUsers = () => {
 
 }
 
-export default DisplayUsers;
-
-/*
 export default withAuthenticationRequired(DisplayUsers, {
     onRedirecting: () => <div>Redirecting you to the login page.  Please wait...</div>,
 });
-*/
