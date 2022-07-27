@@ -66,7 +66,10 @@ const DisplayUsers = () => {
 
 }
 
+export default DisplayUsers;
+
+/*
 export default withAuthenticationRequired(DisplayUsers, {
-    // Show a message while the user waits to be redirected to the login page.
     onRedirecting: () => <div>Redirecting you to the login page.  Please wait...</div>,
 });
+*/
