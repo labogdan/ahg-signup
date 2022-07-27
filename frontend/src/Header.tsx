@@ -8,6 +8,16 @@ import Button from "react-bootstrap/Button";
 
 import logo from './image/ahg-horizontal.jpg';
 
+const LoginButton = () => {
+    const { loginWithRedirect } = useAuth0();
+
+    return (
+        <Button style={{marginLeft: '20px'}} onClick={() => loginWithRedirect()}>
+            Log In
+        </Button>
+    )
+};
+
 const LogoutButton = () => {
     const { logout } = useAuth0();
 
@@ -29,6 +39,7 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="justify-content-end" style={{ width: "100%" }}>
                         <Button href='/admin'>Admin</Button>
+                        <LoginButton />
                         <LogoutButton />
                     </Nav>
                 </Navbar.Collapse>
