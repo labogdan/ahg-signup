@@ -39,7 +39,6 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="justify-content-end" style={{ width: "100%" }}>
                         <Button href='/admin'>Admin</Button>
-                        <LoginButton />
                         <LogoutButton />
                     </Nav>
                 </Navbar.Collapse>
