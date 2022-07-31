@@ -419,7 +419,6 @@ const UserForm = () => {
         <SuccessModal
             show={modalShow}
             onHide={() => setModalShow(false)}
-            resetForm={resetForm}
         />
     </Container>
 
