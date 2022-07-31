@@ -451,7 +451,7 @@ const UserForm = () => {
                     <>
                     <Row className="mb-3 mt-3">
                         <Col>
-                            To update and/or confirm your Kroger Community Rewards designation, please go to <a
+                            Please update and confirm your Kroger Community Rewards designation, here <a
                             href="https://www.kroger.com/account/communityrewards/"
                             target="_blank">https://www.kroger.com/account/communityrewards/</a>. Our Troop, AHG VA9020
                             can be found using Organization Number: <b>NK998</b>.
