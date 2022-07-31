@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import UserService from './users'
 
 import Row from "react-bootstrap/Row";
@@ -10,6 +10,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 import Header from "./Header";
 import SuccessModal from "./SuccessModal";
+import Total from "./Total";
 
 const UserForm = () => {
     const [girls, setGirls] = useState([
@@ -21,6 +22,7 @@ const UserForm = () => {
         }
     ])
     const [modalShow, setModalShow] = React.useState(false);
+    const [totalShow, setTotalShow] = React.useState(false);
     const [validated, setValidated] = useState(false);
 
     const addFields = () => {
@@ -60,14 +62,32 @@ const UserForm = () => {
     let handleSubmit = async (e: any) => {
         e.preventDefault();
         const form = e.currentTarget;
+        console.log(form);
+        console.log(form.checkValidity());
         if (form.checkValidity() === false) {
             e.preventDefault();
             e.stopPropagation();
+        } else {
+            girls.map((value, index) => {
+                console.log(index);
+                console.log(value);
+                try {
+                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade])
+                        .then( () => {
+                            setModalShow(true);
+                        })
+                } catch (e) {
+                    console.error(e);
+                } finally {
+                    console.log('done');
+                }
+
+            })
         }
 
+        console.log('here');
         setValidated(true);
-
-
+        console.log('there');
         /*
         let user = JSON.stringify({
                 first_name: firstName,
@@ -77,25 +97,19 @@ const UserForm = () => {
             })*/
 
 
-        girls.map((value, index) => {
-            console.log(index);
-            console.log(value);
-            try {
-                UserService.createUser([value.firstName, value.lastName, value.age, value.grade])
-                    .then( () => {
-                        setModalShow(true);
-                    })
-            } catch (e) {
-                console.error(e);
-            } finally {
-                console.log('done');
-            }
 
-        })
 
     }
 
-    return <Container>
+    useEffect( () => {
+        console.log(girls);
+        const shouldShow = girls[0].firstName.length > 0 && girls[0].lastName.length > 0;
+        if (girls.length > 0 && shouldShow) {
+            setTotalShow(true);
+        }
+    },[girls])
+
+    return <Container style={{maxWidth: '800px'}}>
         <Header />
         <Row>
             <Col>
@@ -104,11 +118,14 @@ const UserForm = () => {
             </Col>
         </Row>
         <Row>
+            <Col>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 { girls.map((girl, index) => {
                     return (
                             <div key={index} style={{marginBottom: '20px'}}>
-                                <Form.Group className="mb-3 w-50">
+                                <Row>
+                                <Col>
+                                <Form.Group className="mb-3" >
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="First Name"
@@ -122,9 +139,14 @@ const UserForm = () => {
                                         onChange={(e) => handleFormChange(index, e)}
                                         required
                                     />
+                                        <Form.Control.Feedback type="invalid">
+                                            Please fill out first name.
+                                        </Form.Control.Feedback>
                                     </FloatingLabel>
                                 </Form.Group>
-                                <Form.Group className="mb-3 w-50">
+                                </Col>
+                                <Col>
+                                <Form.Group className="mb-3">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Last  Name"
@@ -138,9 +160,16 @@ const UserForm = () => {
                                         onChange={(e) => handleFormChange(index, e)}
                                         required
                                     />
+                                        <Form.Control.Feedback type="invalid">
+                                            Please fill out last name.
+                                        </Form.Control.Feedback>
                                     </FloatingLabel>
                                 </Form.Group>
-                                <Form.Group className="mb-3 w-50">
+                                </Col>
+                                </Row>
+                                <Row>
+                                <Col>
+                                <Form.Group className="mb-3">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Age"
@@ -154,9 +183,14 @@ const UserForm = () => {
                                         onChange={(e) => handleFormChange(index, e)}
                                         required
                                     />
+                                        <Form.Control.Feedback type="invalid">
+                                            Please fill out age.
+                                        </Form.Control.Feedback>
                                     </FloatingLabel>
                                 </Form.Group>
-                                <Form.Group className="mb-3 w-50">
+                                </Col>
+                                <Col>
+                                <Form.Group className="mb-3">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Grade"
@@ -168,7 +202,6 @@ const UserForm = () => {
                                             onChange={(e) => handleFormChange(index, e)}
                                             required
                                         >
-                                            <option>Grade</option>
                                             <option value="0">Kindergarten</option>
                                             <option value="1">First</option>
                                             <option value="2">Second</option>
@@ -185,6 +218,8 @@ const UserForm = () => {
                                         </Form.Select>
                                     </FloatingLabel>
                                 </Form.Group>
+                                </Col>
+                                </Row>
                             </div>
                     )
                 })}
@@ -200,16 +235,16 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="custom-switch"
-                    label={(<>I have reviewed the <a href="">AHG VA9020 Troop Policy & Guidelines Handbook</a> for the 2021-2022 program year, and do you agree to the Troop Policies and Guidelines contained therein</>)}
-                    className='w-50'
+                    label={(<>I have reviewed the <a href="">AHG VA9020 Troop Policy & Guidelines Handbook</a> for the 2021-2022 program year, and do you agree to the Troop Policies and Guidelines contained therein.</>)}
+                    className='mb-3'
                     required
                 />
 
                 <Form.Check
                     type="switch"
                     id="custom-switch"
-                    label={(<>I have reviewed the <a href="">Parent Participation Policy</a> on page 9 of the Troop Policy & Guidelines Handbook, and do you agree to actively participate in the Troop and contribute to the Troop's success</>)}
-                    className='w-50'
+                    label={(<>I have reviewed the <a href="">Parent Participation Policy</a> on page 9 of the Troop Policy & Guidelines Handbook, and do you agree to actively participate in the Troop and contribute to the Troop's success.</>)}
+                    className='mb-3'
                     required
                 />
 
@@ -283,8 +318,37 @@ const UserForm = () => {
                         type="checkbox"
                     />
 
+                    <Form.Check
+                        label="Undecided - please have a board member contact me"
+                        name="group1"
+                        type="checkbox"
+                    />
+
                 </Form.Group>
 
+                <hr />
+
+                <Form.Check
+                    type="switch"
+                    id="custom-switch"
+                    label={(<>I have reviewed the Troop Finances Information on page 10 of the <a href="">Troop Policy & Guidelines Handbook</a>, and I understand the costs associated with participation in AHG Troop VA9020.</>)}
+                    className='mb-3'
+                    required
+                />
+
+                <Form.Check
+                    type="switch"
+                    id="custom-switch"
+                    label={(<>Does your family actively shop at Kroger, and will you participate in the <a href="https://www.kroger.com/i/community/community-rewards" target="_blank">Kroger Community Rewards Program fundraiser</a>? (Answering No means that you are opting out and will pay the opt-out fee.)  Search for "NK998".</>)}
+                    className='mb-3'
+                    required
+                />
+
+                { totalShow &&
+                    <Total
+                        num={girls.length}
+                    />
+                }
 
                 <Form.Group className="mb-3">
                     <Button variant="primary" type="submit">
@@ -293,6 +357,7 @@ const UserForm = () => {
                 </Form.Group>
 
             </Form>
+            </Col>
         </Row>
         <SuccessModal
             show={modalShow}
