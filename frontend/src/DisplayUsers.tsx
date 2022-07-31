@@ -38,12 +38,14 @@ const DisplayUsers = () => {
                             <th>Age</th>
                             <th>Grade</th>
                             <th>Volunteer Positions</th>
-                            <th>Kroger Fundraising</th>
+                            <th>Volunteer Other</th>
+                            <th>Kroger Participate</th>
+                            <th>Kroger Enrolled</th>
                         </tr>
 
 
                             {
-                                users.map(function({first_name, last_name, age, grade, volunteer_positions, kroger, id}){
+                                users.map(function({first_name, last_name, age, grade, volunteer_positions, volunteer_other, kroger_participate, kroger_enrolled, id}){
                                     return (
                                         <tr key={id}>
                                             <td>{first_name}</td>
@@ -51,7 +53,9 @@ const DisplayUsers = () => {
                                             <td>{age}</td>
                                             <td>{grade}</td>
                                             <td>{volunteer_positions}</td>
-                                            <td>{kroger}</td>
+                                            <td>{volunteer_other}</td>
+                                            <td>{kroger_participate}</td>
+                                            <td>{kroger_enrolled}</td>
                                         </tr>
                                     )
                                 })

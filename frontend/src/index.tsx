@@ -7,7 +7,7 @@ import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 import UserForm from "./UserForm";
 import DisplayUsers from "./DisplayUsers";
-
+import Confirmation from "./Confirmation";
 
 
 
@@ -30,6 +30,7 @@ ReactDOM.render(
     <Router>
         <Routes>
             <Route path="/" element={<UserForm />} />
+            <Route path="confirmation" element={<Confirmation />} />
             <Route path="admin" element={<DisplayUsers />} />
         </Routes>
     </Router>

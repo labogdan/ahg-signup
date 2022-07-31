@@ -1,11 +1,15 @@
+import {useNavigate} from 'react-router-dom';
+
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function SuccessModal(props: any) {
 
+    const navigate = useNavigate();
+
     const closeModal = () => {
         props.onHide();
-        props.resetForm();
+        navigate("/confirmation");
     }
 
     return (
