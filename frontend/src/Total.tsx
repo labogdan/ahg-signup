@@ -3,15 +3,25 @@ import Table from 'react-bootstrap/Table';
 
 function SuccessModal(props: any) {
 
-    const total = props.num * 35;
+    const girlTotal = props.num * 40;
+    const fee = props.krogerValue === false ? 40 : 0;
+    const total = girlTotal + fee;
 
     return (
         <Table striped bordered hover>
             <tbody>
             <tr>
-                <th>Troop VA9020 Dues</th>
-                <th>$35 per girl</th>
+                <td><b>Troop VA9020 Dues</b></td>
+                <td>$40 per girl</td>
             </tr>
+
+            { fee > 0 && (
+                <tr>
+                    <td>No-Kroger Fee</td>
+                    <td>$40 per family</td>
+                </tr>
+            )}
+
             <tr>
                 <td><b>Total Due</b></td>
                 <td><b>${total}</b></td>

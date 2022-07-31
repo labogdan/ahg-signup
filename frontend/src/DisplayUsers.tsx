@@ -6,6 +6,7 @@ import Header from "./Header";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Table from "react-bootstrap/Table";
 
 
 const DisplayUsers = () => {
@@ -29,38 +30,37 @@ const DisplayUsers = () => {
             <Header />
             <Row>
                 <Col>
-                    <b>First Name</b>
-                </Col>
-                <Col>
-                    <b>Last Name</b>
-                </Col>
-                <Col>
-                    <b>Age</b>
-                </Col>
-                <Col>
-                    <b>Grade</b>
+                    <Table striped bordered hover>
+                        <tbody>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Age</th>
+                            <th>Grade</th>
+                            <th>Volunteer Positions</th>
+                            <th>Kroger Fundraising</th>
+                        </tr>
+
+
+                            {
+                                users.map(function({first_name, last_name, age, grade, volunteer_positions, kroger, id}){
+                                    return (
+                                        <tr key={id}>
+                                            <td>{first_name}</td>
+                                            <td>{last_name}</td>
+                                            <td>{age}</td>
+                                            <td>{grade}</td>
+                                            <td>{volunteer_positions}</td>
+                                            <td>{kroger}</td>
+                                        </tr>
+                                    )
+                                })
+                            }
+                        </tbody>
+                    </Table>
                 </Col>
             </Row>
-            {
-                users.map(function({first_name, last_name, age, grade, id}){
-                    return (
-                        <Row key={id}>
-                            <Col>
-                                <div>{first_name}</div>
-                            </Col>
-                            <Col>
-                                <div>{last_name}</div>
-                            </Col>
-                            <Col>
-                                <div>{age}</div>
-                            </Col>
-                            <Col>
-                                <div>{grade}</div>
-                            </Col>
-                        </Row>
-                    )
-                })
-            }
+
         </Container>
     )
 

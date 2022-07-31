@@ -8,6 +8,11 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
+
+import ToggleButton from "react-bootstrap/ToggleButton";
+import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
+
+
 import Header from "./Header";
 import SuccessModal from "./SuccessModal";
 import Total from "./Total";
@@ -24,6 +29,8 @@ const UserForm = () => {
     const [modalShow, setModalShow] = React.useState(false);
     const [totalShow, setTotalShow] = React.useState(false);
     const [validated, setValidated] = useState(false);
+    const [krogerValue, setKrogerValue] = useState(false);
+    const [volunteerValues, setVolunteerValues] = useState([]);
 
     const addFields = () => {
         let newfield = {
@@ -48,6 +55,27 @@ const UserForm = () => {
         setGirls(data);
     }
 
+    const handleKrogerChange = (event: any) => {
+        if (event.target.value === 'yes') {
+            setKrogerValue(true)
+        } else {
+            setKrogerValue(false)
+        }
+    }
+
+    useEffect(() => {
+        console.log(volunteerValues);
+    }, [volunteerValues])
+
+    const handleVolunteerChange = (event: any) => {
+        if (event.target.checked === true) {
+            setVolunteerValues(volunteerValues => volunteerValues.concat(event.target.value))
+        } else {
+            setVolunteerValues(volunteerValues.filter(item => item !== event.target.value))
+
+        }
+    }
+
     const resetForm = () => {
         setGirls(
             [{
@@ -62,17 +90,13 @@ const UserForm = () => {
     let handleSubmit = async (e: any) => {
         e.preventDefault();
         const form = e.currentTarget;
-        console.log(form);
-        console.log(form.checkValidity());
         if (form.checkValidity() === false) {
             e.preventDefault();
             e.stopPropagation();
         } else {
             girls.map((value, index) => {
-                console.log(index);
-                console.log(value);
                 try {
-                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade])
+                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, krogerValue, volunteerValues])
                         .then( () => {
                             setModalShow(true);
                         })
@@ -85,9 +109,8 @@ const UserForm = () => {
             })
         }
 
-        console.log('here');
         setValidated(true);
-        console.log('there');
+
         /*
         let user = JSON.stringify({
                 first_name: firstName,
@@ -96,13 +119,9 @@ const UserForm = () => {
                 grade: grade
             })*/
 
-
-
-
     }
 
     useEffect( () => {
-        console.log(girls);
         const shouldShow = girls[0].firstName.length > 0 && girls[0].lastName.length > 0;
         if (girls.length > 0 && shouldShow) {
             setTotalShow(true);
@@ -113,7 +132,7 @@ const UserForm = () => {
         <Header />
         <Row>
             <Col>
-                <h1>Welcome to the Roanoke American Heritage Girls Signup Portal!</h1>
+                <h1>Welcome to the American Heritage Girls VA9020 Signup Portal!</h1>
                 <h5>Please fill out the following form to register your girls.</h5>
             </Col>
         </Row>
@@ -235,7 +254,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="custom-switch"
-                    label={(<>I have reviewed the <a href="">AHG VA9020 Troop Policy & Guidelines Handbook</a> for the 2021-2022 program year, and do you agree to the Troop Policies and Guidelines contained therein.</>)}
+                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/66953/document/original/2022-2023_VA9020_Policies___Guidelines_Handbook.pdf" target="_blank">AHG VA9020 Troop Policy & Guidelines Handbook</a> for the 2021-2022 program year, and do you agree to the Troop Policies and Guidelines contained therein.</>)}
                     className='mb-3'
                     required
                 />
@@ -243,7 +262,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="custom-switch"
-                    label={(<>I have reviewed the <a href="">Parent Participation Policy</a> on page 9 of the Troop Policy & Guidelines Handbook, and do you agree to actively participate in the Troop and contribute to the Troop's success.</>)}
+                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/66953/document/original/2022-2023_VA9020_Policies___Guidelines_Handbook.pdf" target="_blank">Parent Participation Policy</a> on page 9 of the Troop Policy & Guidelines Handbook, and do you agree to actively participate in the Troop and contribute to the Troop's success.</>)}
                     className='mb-3'
                     required
                 />
@@ -251,78 +270,95 @@ const UserForm = () => {
                 <hr />
                 <p className="mb-3">Each family needs to have a parent volunteer in some capacity for our troop.  Please select from any available positions that interest you.</p>
 
-                <Form.Group className="mb-3">
-                    <Form.Check
-                        label="Childcare team"
-                        name="group1"
-                        type="checkbox"
-                    />
+                <Form.Group onChange={(e) => { handleVolunteerChange(e)}} className="mb-3">
+                    <Row>
+                        <Col>
+                                <Form.Check
+                                    label="Childcare team"
+                                    name="group1"
+                                    type="checkbox"
+                                    value="childcare"
+                                />
 
-                    <Form.Check
-                        label="Greeter"
-                        name="group1"
-                        type="checkbox"
-                    />
+                                <Form.Check
+                                    label="Greeter"
+                                    name="group1"
+                                    type="checkbox"
+                                    value="greeter"
+                                />
 
-                    <Form.Check
-                        label="Unit leader"
-                        name="group1"
-                        type="checkbox"
-                    />
+                                <Form.Check
+                                    label="Unit leader"
+                                    name="group1"
+                                    type="checkbox"
+                                    value="unitLeader"
+                                />
 
-                    <Form.Check
-                        label="Assistant leader"
-                        name="group1"
-                        type="checkbox"
-                    />
+                                <Form.Check
+                                    label="Assistant leader"
+                                    name="group1"
+                                    type="checkbox"
+                                    value="assistantLeader"
+                                />
 
-                    <Form.Check
-                        label="Registrar"
-                        name="group1"
-                        type="checkbox"
-                    />
+                                <Form.Check
+                                    label="Registrar"
+                                    name="group1"
+                                    type="checkbox"
+                                    value="registrar"
+                                />
 
-                    <Form.Check
-                        label="Fundraising"
-                        name="group1"
-                        type="checkbox"
-                    />
+                                <Form.Check
+                                    label="Fundraising"
+                                    name="group1"
+                                    type="checkbox"
+                                    value="fundraising"
+                                />
+                        </Col>
+                        <Col>
+                            <Form.Check
+                                label="Special Events Coordinator"
+                                name="group1"
+                                type="checkbox"
+                                value="special_eventsCoordinator"
+                            />
 
-                    <Form.Check
-                        label="Special Events Coordinator"
-                        name="group1"
-                        type="checkbox"
-                    />
+                            <Form.Check
+                                label="Service Project"
+                                name="group1"
+                                type="checkbox"
+                                value="serviceProject"
+                            />
 
-                    <Form.Check
-                        label="Service Project"
-                        name="group1"
-                        type="checkbox"
-                    />
+                            <Form.Check
+                                label="Setup / Cleanup Team"
+                                name="group1"
+                                type="checkbox"
+                                value="setupCleanupTeam"
+                            />
 
-                    <Form.Check
-                        label="Setup / Cleanup Team"
-                        name="group1"
-                        type="checkbox"
-                    />
+                            <Form.Check
+                                label="Troop Shepherd"
+                                name="group1"
+                                type="checkbox"
+                                value="troopShepherd"
+                            />
 
-                    <Form.Check
-                        label="Troop Shepherd"
-                        name="group1"
-                        type="checkbox"
-                    />
+                            <Form.Check
+                                label="Treasurer"
+                                name="group1"
+                                type="checkbox"
+                                value="treasurer"
+                            />
 
-                    <Form.Check
-                        label="Treasurer"
-                        name="group1"
-                        type="checkbox"
-                    />
-
-                    <Form.Check
-                        label="Undecided - please have a board member contact me"
-                        name="group1"
-                        type="checkbox"
-                    />
+                            <Form.Check
+                                label="Undecided - please have a board member contact me"
+                                name="group1"
+                                type="checkbox"
+                                value="undecided"
+                            />
+                        </Col>
+                    </Row>
 
                 </Form.Group>
 
@@ -336,19 +372,40 @@ const UserForm = () => {
                     required
                 />
 
+                <p>{(<>I confirm that I actively shop at Kroger, and will participate in the <a href="https://www.kroger.com/i/community/community-rewards" target="_blank">Kroger Community Rewards Program fundraiser</a>? (Answering No means that you are opting out and will pay the opt-out fee.)  Search for "NK998".</>)}</p>
+
+
+                <div onChange={(e) => handleKrogerChange(e)}>
                 <Form.Check
-                    type="switch"
-                    id="custom-switch"
-                    label={(<>Does your family actively shop at Kroger, and will you participate in the <a href="https://www.kroger.com/i/community/community-rewards" target="_blank">Kroger Community Rewards Program fundraiser</a>? (Answering No means that you are opting out and will pay the opt-out fee.)  Search for "NK998".</>)}
+                    inline
+                    name="kroger"
+                    type="radio"
+                    label="Yes"
+                    value="yes"
                     className='mb-3'
                     required
                 />
+                <Form.Check
+                    inline
+                    name="kroger"
+                    type="radio"
+                    label="No"
+                    value="no"
+                    className='mb-3'
+                    required
+                />
+                </div>
+
+                <hr />
+
 
                 { totalShow &&
                     <Total
                         num={girls.length}
+                        krogerValue={krogerValue}
                     />
                 }
+
 
                 <Form.Group className="mb-3">
                     <Button variant="primary" type="submit">
