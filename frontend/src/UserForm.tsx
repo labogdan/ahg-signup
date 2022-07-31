@@ -28,7 +28,9 @@ const UserForm = () => {
     ])
     const [modalShow, setModalShow] = React.useState(false);
     const [totalShow, setTotalShow] = React.useState(false);
+    const [krogerShow, setKrogerShow] = React.useState(false);
     const [validated, setValidated] = useState(false);
+
     const [krogerParticipateValue, setKrogerParticipateValue] = useState(false);
     const [krogerEnrolledValue, setKrogerEnrolledValue] = useState(false);
     const [volunteerValues, setVolunteerValues] = useState([]);
@@ -59,7 +61,8 @@ const UserForm = () => {
 
     const handleKrogerParticipateChange = (event: any) => {
         if (event.target.value === 'yes') {
-            setKrogerParticipateValue(true)
+            setKrogerParticipateValue(true);
+            setKrogerShow(true);
         } else {
             setKrogerParticipateValue(false)
         }
@@ -290,7 +293,7 @@ const UserForm = () => {
                     <Row>
                         <Col>
                                 <Form.Check
-                                    label="Childcare Team"
+                                    label="Childcare"
                                     name="group1"
                                     type="checkbox"
                                     value="childcare"
@@ -406,7 +409,6 @@ const UserForm = () => {
                                 placeholder="Please Specify"
                                 onChange={(e) => handleOtherChange(e)}
                                 value={volunteerOther}
-                                required
                             />
                         </Col>
                     </Row>
@@ -451,16 +453,21 @@ const UserForm = () => {
                     </Col>
                 </Row>
 
-                <Row className="mb-3 mt-3">
-                    <Col>
-                        To update and/or confirm your Kroger Community Rewards designation, please go to <a href="https://www.kroger.com/account/communityrewards/" target="_blank">https://www.kroger.com/account/communityrewards/</a>. Our Troop, AHG VA9020 can be found using Organization Number: <b>NK998</b>.
-                    </Col>
-                </Row>
+                {krogerShow && (
+                    <>
+                    <Row className="mb-3 mt-3">
+                        <Col>
+                            To update and/or confirm your Kroger Community Rewards designation, please go to <a
+                            href="https://www.kroger.com/account/communityrewards/"
+                            target="_blank">https://www.kroger.com/account/communityrewards/</a>. Our Troop, AHG VA9020
+                            can be found using Organization Number: <b>NK998</b>.
+                        </Col>
+                    </Row>
 
-                <Row className="mb-3">
-                    <Col md={1}>
-                        <div onChange={(e) => handleKrogerEnrolledChange(e)}>
-                            <Form.Check
+                    <Row className="mb-3">
+                        <Col md={1}>
+                            <div onChange={(e) => handleKrogerEnrolledChange(e)}>
+                                <Form.Check
                                 inline
                                 name="kroger_enrolled"
                                 type="radio"
@@ -468,8 +475,8 @@ const UserForm = () => {
                                 value="yes"
                                 className='mb-3'
                                 required
-                            />
-                            <Form.Check
+                                />
+                                <Form.Check
                                 inline
                                 name="kroger_enrolled"
                                 type="radio"
@@ -477,14 +484,16 @@ const UserForm = () => {
                                 value="no"
                                 className='mb-3'
                                 required
-                            />
-                        </div>
-                    </Col>
-                    <Col md={10}>
-                        {(<>I have actively enrolled in the Kroger Community Rewards program for the benefit of AHG Troop 9020 and will continue the designation throughout the Troop Program Year 2022-2023.</>)}
-                    </Col>
-                </Row>
-
+                                />
+                            </div>
+                        </Col>
+                        <Col md={10}>
+                             {(<>I have actively enrolled in the Kroger Community Rewards program for the benefit of AHG Troop 9020 and will continue the designation throughout the Troop Program Year 2022-2023.</>)}
+                        </Col>
+                    </Row>
+                    </>
+                    )
+                }
 
                 <hr />
 
