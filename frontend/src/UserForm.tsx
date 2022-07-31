@@ -425,33 +425,27 @@ const UserForm = () => {
                     required
                 />
 
-                <Row>
-                    <Col md={1}>
-                        <div onChange={(e) => handleKrogerParticipateChange(e)}>
-                            <Form.Check
-                                inline
-                                name="kroger_participate"
-                                type="radio"
-                                label="Yes"
-                                value="yes"
-                                className='mb-3'
-                                required
-                            />
-                            <Form.Check
-                                inline
-                                name="kroger_participate"
-                                type="radio"
-                                label="No"
-                                value="no"
-                                className='mb-3'
-                                required
-                            />
-                        </div>
-                    </Col>
-                    <Col md={10}>
-                        {(<>Does your family actively shop at Kroger, and will you participate in the Kroger Community Rewards Program fundraiser? (Answering No means that you are opting out and will pay the opt-out fee.)</>)}
-                    </Col>
-                </Row>
+                {(<>Does your family actively shop at Kroger, and will you participate in the Kroger Community Rewards Program fundraiser? (Answering No means that you are opting out and will pay the opt-out fee.)</>)}
+                <div onChange={(e) => handleKrogerParticipateChange(e)}>
+                    <Form.Check
+                        inline
+                        name="kroger_participate"
+                        type="radio"
+                        label="Yes"
+                        value="yes"
+                        className='mb-3'
+                        required
+                    />
+                    <Form.Check
+                        inline
+                        name="kroger_participate"
+                        type="radio"
+                        label="No"
+                        value="no"
+                        className='mb-3'
+                        required
+                    />
+                </div>
 
                 {krogerShow && (
                     <>
@@ -464,10 +458,9 @@ const UserForm = () => {
                         </Col>
                     </Row>
 
-                    <Row className="mb-3">
-                        <Col md={1}>
-                            <div onChange={(e) => handleKrogerEnrolledChange(e)}>
-                                <Form.Check
+                     {(<>I have actively enrolled in the Kroger Community Rewards program for the benefit of AHG Troop 9020 and will continue the designation throughout the Troop Program Year 2022-2023.</>)}
+                        <div onChange={(e) => handleKrogerEnrolledChange(e)}>
+                            <Form.Check
                                 inline
                                 name="kroger_enrolled"
                                 type="radio"
@@ -475,8 +468,8 @@ const UserForm = () => {
                                 value="yes"
                                 className='mb-3'
                                 required
-                                />
-                                <Form.Check
+                            />
+                            <Form.Check
                                 inline
                                 name="kroger_enrolled"
                                 type="radio"
@@ -484,13 +477,8 @@ const UserForm = () => {
                                 value="no"
                                 className='mb-3'
                                 required
-                                />
-                            </div>
-                        </Col>
-                        <Col md={10}>
-                             {(<>I have actively enrolled in the Kroger Community Rewards program for the benefit of AHG Troop 9020 and will continue the designation throughout the Troop Program Year 2022-2023.</>)}
-                        </Col>
-                    </Row>
+                            />
+                        </div>
                     </>
                     )
                 }
