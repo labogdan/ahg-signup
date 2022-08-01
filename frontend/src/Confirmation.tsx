@@ -16,41 +16,17 @@ const Confirmation = () => {
             </Row>
             <Row className="mb-3">
                 <Col>
-                    Look out for an email from our Treasurer, Holly Williams to pay Troop Dues
+                    <ul>
+                        <li>Look out for an email from our Treasurer, Holly Williams to pay Troop Dues.</li>
+                        <li>Need uniforms or handbooks? Please make your family order directly through the <a href="https://store.americanheritagegirls.org" target="_blank">AHG store</a>.</li>
+                        <li><a href="https://media.trooptrack.com/troop_documents/66958/document/original/Troop_VA9020_Meeting_Permission_Slip.pdf" target="_blank">Troop Meeting Permission Slip</a> (required, 1 per family).</li>
+                        <li><a href="https://media.trooptrack.com/troop_documents/66959/document/original/AHG_Health_and_Medical_Form_VA9020.pdf" target="_blank">Health and Medical Form</a> (required, 1 per girl/registered adult).</li>
+                        <li><a href="https://media.trooptrack.com/troop_documents/66960/document/original/Request_for_Administration_of_Medication_Form.pdf" target="_blank">Request for Administration of Medication</a>  (required, 1 per girl/registered adult).</li>
+                        <li><a href="https://media.trooptrack.com/troop_documents/66961/document/original/AHG_High_Adventure_Activity_Medical_Form_VA9020.pdf" target="_blank">High Adventure Activity Medical Form</a>.</li>
+                        <li>Put Parent Information Night on your calendar for August 29. Make sure to bring the required (and optional) hard copy forms to complete your registration process!</li>
+                    </ul>
                 </Col>
             </Row>
-            <Row className="mb-3">
-                <Col>
-                    Need uniforms or handbooks? Please make your family order directly through the <a href="https://store.americanheritagegirls.org" target="_blank">AHG store</a>.
-                </Col>
-            </Row>
-            <Row className="mb-3">
-                <Col>
-                    < a href="https://media.trooptrack.com/troop_documents/66958/document/original/Troop_VA9020_Meeting_Permission_Slip.pdf" target="_blank">Troop Meeting Permission Slip</a> (required, 1 per family)
-                </Col>
-            </Row>
-            <Row className="mb-3">
-                <Col>
-                    < a href="https://media.trooptrack.com/troop_documents/66959/document/original/AHG_Health_and_Medical_Form_VA9020.pdf" target="_blank">Health and Medical Form</a> (required, 1 per girl/registered adult)
-                </Col>
-            </Row>
-            <Row className="mb-3">
-                <Col>
-                    < a href="https://media.trooptrack.com/troop_documents/66960/document/original/Request_for_Administration_of_Medication_Form.pdf" target="_blank">Request for Administration of Medication</a>  (required, 1 per girl/registered adult)
-                </Col>
-            </Row>
-            <Row className="mb-3">
-                <Col>
-                    < a href="https://media.trooptrack.com/troop_documents/66961/document/original/AHG_High_Adventure_Activity_Medical_Form_VA9020.pdf" target="_blank">High Adventure Activity Medical Form</a>
-                </Col>
-            </Row>
-
-            <Row className="mb-3">
-                <Col>
-                    Put Parent Information Night on your calendar for August 29. Make sure to bring the required (and optional) hard copy forms to complete your registration process!
-                </Col>
-            </Row>
-
         </Container>
     )
 }
