@@ -501,7 +501,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="troop-finances"
-                    label={(<>I have reviewed the Troop Finances Information on page 10 and 11 of the <a href="">Troop Policy & Guidelines Handbook</a>, and I understand the costs associated with participation in AHG Troop VA9020.</>)}
+                    label={(<>I have reviewed the Troop Finances Information on page 10 and 11 of the <a href="https://media.trooptrack.com/troop_documents/66953/document/original/2022-2023_VA9020_Policies___Guidelines_Handbook.pdf" target="_blank">Troop Policy & Guidelines Handbook</a>, and I understand the costs associated with participation in AHG Troop VA9020.</>)}
                     className='mb-3'
                     onChange={(e) => {setTotalShow(true)}}
                     required
