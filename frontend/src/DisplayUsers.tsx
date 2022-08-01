@@ -41,11 +41,16 @@ const DisplayUsers = () => {
                             <th>Volunteer Other</th>
                             <th>Kroger Participate</th>
                             <th>Kroger Enrolled</th>
+                            <th>Parent Name</th>
+                            <th>Email Address</th>
+                            <th>Parent Adult Leader</th>
+                            <th>Using PayPal</th>
+                            <th>PayPal Address</th>
                         </tr>
 
 
                             {
-                                users.map(function({first_name, last_name, age, grade, volunteer_positions, volunteer_other, kroger_participate, kroger_enrolled, id}){
+                                users.map(function({first_name, last_name, age, grade, volunteer_positions, volunteer_other, kroger_participate, kroger_enrolled, parent_name, email_address, is_adult_leader, using_paypal, paypal_address, id}){
                                     return (
                                         <tr key={id}>
                                             <td>{first_name}</td>
@@ -56,6 +61,11 @@ const DisplayUsers = () => {
                                             <td>{volunteer_other}</td>
                                             <td>{kroger_participate}</td>
                                             <td>{kroger_enrolled}</td>
+                                            <td>{parent_name}</td>
+                                            <td>{email_address}</td>
+                                            <td>{is_adult_leader}</td>
+                                            <td>{using_paypal}</td>
+                                            <td>{paypal_address}</td>
                                         </tr>
                                     )
                                 })

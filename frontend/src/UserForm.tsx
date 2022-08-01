@@ -30,11 +30,17 @@ const UserForm = () => {
     const [totalShow, setTotalShow] = React.useState(false);
     const [krogerShow, setKrogerShow] = React.useState(false);
     const [validated, setValidated] = useState(false);
+    const [parentShow, setParentShow] = useState(false);
 
+    const [parentName, setParentName] = useState("");
+    const [emailAddress, setEmailAddress] = useState("")
     const [krogerParticipateValue, setKrogerParticipateValue] = useState(false);
     const [krogerEnrolledValue, setKrogerEnrolledValue] = useState(false);
     const [volunteerValues, setVolunteerValues] = useState([]);
     const [volunteerOther, setVolunteerOther] = useState("");
+    const [usingPayPal, setUsingPayPal] = useState(false);
+    const [payPalAddress, setPayPalAddress] = useState("");
+    const [isAdultLeader, setIsAdultLeader] = useState(false)
 
     const addFields = () => {
         let newfield = {
@@ -54,9 +60,43 @@ const UserForm = () => {
 
     const handleFormChange = (index: any, event: any) => {
         let data = [...girls];
-        // @ts-ignore
-        data[index][event.target.name] = event.target.value;
-        setGirls(data);
+        const re = /^[0-9\b]+$/;
+
+        if (event.target.name === 'age') {
+            if (event.target.value === '' || re.test(event.target.value)) {
+                // @ts-ignore
+                data[index][event.target.name] = event.target.value;
+                setGirls(data);
+            }
+        } else {
+            // @ts-ignore
+            data[index][event.target.name] = event.target.value;
+            setGirls(data);
+        }
+    }
+
+    const handleNameChange = (event: any) => {
+        setParentName(event.target.value);
+    }
+
+    const handleEmailChange = (event: any) => {
+        setEmailAddress(event.target.value);
+    }
+
+    const showParentInfo = (event: any) => {
+        setParentShow(true);
+    }
+
+    const handleAdultLeader = (event: any) => {
+        setIsAdultLeader(event.target.checked);
+    }
+
+    const handleUsingPayPal = (event: any) => {
+        setUsingPayPal(true);
+    }
+
+    const handlePayPalChange = (event: any) => {
+        setPayPalAddress(event.target.value);
     }
 
     const handleKrogerParticipateChange = (event: any) => {
@@ -76,11 +116,6 @@ const UserForm = () => {
         }
     }
 
-    useEffect(() => {
-        console.log(volunteerValues);
-        console.log(volunteerOther);
-    }, [volunteerValues])
-
     const handleVolunteerChange = (event: any) => {
         if (event.target.checked === true) {
             setVolunteerValues(volunteerValues => volunteerValues.concat(event.target.value))
@@ -94,18 +129,6 @@ const UserForm = () => {
         setVolunteerOther(event.target.value);
     }
 
-
-    const resetForm = () => {
-        setGirls(
-            [{
-                firstName: '',
-                lastName: '',
-                age: '',
-                grade: ''
-            }]
-        );
-    }
-
     let handleSubmit = async (e: any) => {
         e.preventDefault();
         const form = e.currentTarget;
@@ -115,7 +138,7 @@ const UserForm = () => {
         } else {
             girls.map((value, index) => {
                 try {
-                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther])
+                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther, parentName, emailAddress, isAdultLeader, usingPayPal, payPalAddress])
                         .then( () => {
                             setModalShow(true);
                         })
@@ -143,7 +166,7 @@ const UserForm = () => {
     useEffect( () => {
         const shouldShow = girls[0].firstName.length > 0 && girls[0].lastName.length > 0;
         if (girls.length > 0 && shouldShow) {
-            setTotalShow(true);
+            // setTotalShow(true);
         }
     },[girls])
 
@@ -166,7 +189,7 @@ const UserForm = () => {
                                 <Form.Group className="mb-3" >
                                     <FloatingLabel
                                         controlId="floatingInput"
-                                        label="First Name"
+                                        label="Girl First Name"
                                         className="mb-3"
                                     >
                                     <Form.Control
@@ -187,7 +210,7 @@ const UserForm = () => {
                                 <Form.Group className="mb-3">
                                     <FloatingLabel
                                         controlId="floatingInput"
-                                        label="Last  Name"
+                                        label="Girl Last Name"
                                         className="mb-3"
                                     >
                                     <Form.Control
@@ -283,8 +306,56 @@ const UserForm = () => {
                     id="parent-participation"
                     label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/66953/document/original/2022-2023_VA9020_Policies___Guidelines_Handbook.pdf" target="_blank">Parent Participation Policy</a> on page 9 of the Troop Policy & Guidelines Handbook, and agree to actively participate in the Troop and contribute to the Troop's success.</>)}
                     className='mb-3'
+                    onChange={(e) => showParentInfo(e)}
                     required
                 />
+
+                { parentShow && (
+                    <Row>
+                        <Col>
+                            <Form.Group className="mb-3" >
+                                <FloatingLabel
+                                    controlId="floatingInput"
+                                    label="Parent First and Last Name"
+                                    className="mb-3"
+                                >
+                                    <Form.Control
+                                        type="text"
+                                        name="parentName"
+                                        placeholder="Parent First and Last Name"
+                                        value={parentName}
+                                        onChange={(e) => handleNameChange(e)}
+                                        required
+                                    />
+                                    <Form.Control.Feedback type="invalid">
+                                        Please fill out your first and last name.
+                                    </Form.Control.Feedback>
+                                </FloatingLabel>
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group className="mb-3">
+                                <FloatingLabel
+                                    controlId="floatingInput"
+                                    label="Parent Email Address"
+                                    className="mb-3"
+                                >
+                                    <Form.Control
+                                        type="email"
+                                        name="email"
+                                        placeholder="Email Address"
+                                        value={emailAddress}
+                                        onChange={(e) => handleEmailChange(e)}
+                                        required
+                                    />
+                                    <Form.Control.Feedback type="invalid">
+                                        Please fill out your email address.
+                                    </Form.Control.Feedback>
+                                </FloatingLabel>
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                )}
 
                 <hr />
                 <p className="mb-3">Please select all volunteer areas of interest or experience.</p>
@@ -292,46 +363,53 @@ const UserForm = () => {
                 <Form.Group onChange={(e) => { handleVolunteerChange(e)}} className="mb-3">
                     <Row>
                         <Col>
-                                <Form.Check
+                            <Form.Check
+                                label="Administration / Registrar"
+                                name="group1"
+                                type="checkbox"
+                                value="registrar"
+                            />
+
+                            <Form.Check
+                                label="Assistant Unit leader"
+                                name="group1"
+                                type="checkbox"
+                                value="assistantLeader"
+                            />
+
+                            <Form.Check
                                     label="Childcare"
                                     name="group1"
                                     type="checkbox"
                                     value="childcare"
                                 />
 
-                                <Form.Check
+                            <Form.Check
+                                label="CPR Certified"
+                                name="group1"
+                                type="checkbox"
+                                value="cpr"
+                            />
+
+                            <Form.Check
+                                label="First Aid"
+                                name="group1"
+                                type="checkbox"
+                                value="firstAid"
+                            />
+
+                            <Form.Check
+                                label="Fundraising"
+                                name="group1"
+                                type="checkbox"
+                                value="fundraising"
+                            />
+
+                            <Form.Check
                                     label="Greeter"
                                     name="group1"
                                     type="checkbox"
                                     value="greeter"
-                                />
-
-                                <Form.Check
-                                    label="Unit Leader"
-                                    name="group1"
-                                    type="checkbox"
-                                    value="unitLeader"
-                                />
-
-                                <Form.Check
-                                    label="Assistant Unit leader"
-                                    name="group1"
-                                    type="checkbox"
-                                    value="assistantLeader"
-                                />
-
-                                <Form.Check
-                                    label="Administration / Registrar"
-                                    name="group1"
-                                    type="checkbox"
-                                    value="registrar"
-                                />
-
-                                <Form.Check
-                                    label="Fundraising"
-                                    name="group1"
-                                    type="checkbox"
-                                    value="fundraising"
                                 />
 
                             <Form.Check
@@ -339,26 +417,6 @@ const UserForm = () => {
                                 name="group1"
                                 type="checkbox"
                                 value="lifeguard"
-                            />
-                            <Form.Check
-                                label="CPR Certified"
-                                name="group1"
-                                type="checkbox"
-                                value="cpr"
-                            />
-                            <Form.Check
-                                label="First Aid"
-                                name="group1"
-                                type="checkbox"
-                                value="firstAid"
-                            />
-                        </Col>
-                        <Col>
-                            <Form.Check
-                                label="Special Events"
-                                name="group1"
-                                type="checkbox"
-                                value="special_eventsCoordinator"
                             />
 
                             <Form.Check
@@ -368,11 +426,22 @@ const UserForm = () => {
                                 value="serviceProject"
                             />
 
+
+                        </Col>
+                        <Col>
+
                             <Form.Check
                                 label="Setup / Cleanup Team"
                                 name="group1"
                                 type="checkbox"
                                 value="setupCleanupTeam"
+                            />
+
+                            <Form.Check
+                                label="Special Events"
+                                name="group1"
+                                type="checkbox"
+                                value="special_eventsCoordinator"
                             />
 
                             <Form.Check
@@ -388,6 +457,14 @@ const UserForm = () => {
                                 type="checkbox"
                                 value="treasurer"
                             />
+
+                            <Form.Check
+                                label="Unit Leader"
+                                name="group1"
+                                type="checkbox"
+                                value="unitLeader"
+                            />
+
 
                             <Form.Check
                                 label="Undecided - please have a board member contact me"
@@ -422,8 +499,35 @@ const UserForm = () => {
                     id="troop-finances"
                     label={(<>I have reviewed the Troop Finances Information on page 10 of the <a href="">Troop Policy & Guidelines Handbook</a>, and I understand the costs associated with participation in AHG Troop VA9020.</>)}
                     className='mb-3'
+                    onChange={(e) => {setTotalShow(true)}}
                     required
                 />
+
+                {totalShow &&
+                <>
+                    <Form.Check
+                        type="switch"
+                        id="troop-finances-pipa"
+                        label={(<>I understand that Pioneer Level (Ages 12-14) and Patriot Level (Ages 14-18) Girl
+                            Members will be accessed an additional mandatory fee of $40 per girl as stated in the Troop
+                            Finance policy.</>)}
+                        className='mb-3'
+                        required
+                    />
+
+                    <Form.Check
+                        type="switch"
+                        id="adult-leader"
+                        label={(<>I have made a commitment with the Board, to be a Unit Leader, an Assistant Unit Leader, or another Key Role for this upcoming 2022-2023 Troop Year, and have already paid my Adult Registration in AHG Family. Please deduct my Adult Member Registration ($35) from my total Troop Dues.</>)}
+                        className='mb-3'
+                        checked={isAdultLeader}
+                        onChange={(e) => {
+                            handleAdultLeader(e)
+                        }}
+                        required
+                    />
+                </>
+                }
 
                 {(<>Does your family actively shop at Kroger, and will you participate in the Kroger Community Rewards Program fundraiser? (Answering No means that you are opting out and will pay the opt-out fee.)</>)}
                 <div onChange={(e) => handleKrogerParticipateChange(e)}>
@@ -486,12 +590,52 @@ const UserForm = () => {
                 <hr />
 
                 { totalShow &&
-                    <Total
-                        num={girls.length}
-                        krogerValue={krogerParticipateValue}
-                    />
+                    <>
+                        <Total
+                            num={girls.length}
+                            krogerParticipateValue={krogerParticipateValue}
+                            krogerEnrolledValue={krogerEnrolledValue}
+                            pipas={girls}
+                            isAdultLeader={isAdultLeader}
+                        />
+
+                        <Form.Check
+                            type="switch"
+                            id="using-paypal"
+                            label={(<>Will you be using PayPal to pay for your troop dues?</>)}
+                            className='mb-3'
+                            onChange={(e) => {handleUsingPayPal(e)}}
+                            checked={usingPayPal}
+                            required
+                        />
+                    </>
                 }
 
+                { usingPayPal &&
+                    <>
+                        <p>After you submit your registration, you will receive a PayPal invoice for your balance due to the troop. You may pay online or by check to avoid transaction fees. No cash, please.</p>
+                        <p>Please provide your PayPal email address and/or email address for other invoicing.</p>
+                        <Form.Group className="mb-3">
+                            <FloatingLabel
+                                controlId="floatingInput"
+                                label="PayPal Address"
+                                className="mb-3"
+                            >
+                                <Form.Control
+                                    type="email"
+                                    name="email"
+                                    placeholder="PayPal Address"
+                                    value={payPalAddress}
+                                    onChange={(e) => handlePayPalChange(e)}
+                                    required
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    Please fill out your email address.
+                                </Form.Control.Feedback>
+                            </FloatingLabel>
+                        </Form.Group>
+                    </>
+                }
 
                 <Form.Group className="mb-3">
                     <Button variant="primary" type="submit">
