@@ -70,7 +70,7 @@ function SuccessModal(props: any) {
             </tr>
             </tbody>
         </Table>
-            <p style={{fontSize: '14px'}}><sup>*</sup> This is an estimate provided for your convenience. Please wait for the official invoice from the treasurer.</p>
+            <p style={{fontSize: '14px'}}><sup>*</sup> This is an estimate provided for your convenience. Please wait for the official invoice from the Treasurer.</p>
         </>
     );
 }
