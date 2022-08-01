@@ -41,7 +41,6 @@ const UserForm = () => {
     const [krogerEnrolledValue, setKrogerEnrolledValue] = useState(false);
     const [volunteerValues, setVolunteerValues] = useState([]);
     const [volunteerOther, setVolunteerOther] = useState("");
-    const [usingPayPal, setUsingPayPal] = useState(false);
     const [payPalAddress, setPayPalAddress] = useState("");
     const [isAdultLeader, setIsAdultLeader] = useState(false)
 
@@ -94,10 +93,6 @@ const UserForm = () => {
         setIsAdultLeader(event.target.checked);
     }
 
-    const handleUsingPayPal = (event: any) => {
-        setUsingPayPal(true);
-    }
-
     const handlePayPalChange = (event: any) => {
         setPayPalAddress(event.target.value);
     }
@@ -135,7 +130,7 @@ const UserForm = () => {
         } else {
             girls.map((value, index) => {
                 try {
-                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther, parentName, emailAddress, isAdultLeader, usingPayPal, payPalAddress])
+                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther, parentName, emailAddress, isAdultLeader, payPalAddress])
                         .then( () => {
                             setModalShow(true);
                         })
@@ -182,7 +177,7 @@ const UserForm = () => {
                     return (
                             <div key={index} style={{marginBottom: '20px'}}>
                                 <Row>
-                                <Col xs={12}>
+                                <Col xs={12} md={6}>
                                 <Form.Group className="mb-3" >
                                     <FloatingLabel
                                         controlId="floatingInput"
@@ -203,7 +198,7 @@ const UserForm = () => {
                                     </FloatingLabel>
                                 </Form.Group>
                                 </Col>
-                                <Col xs={12}    >
+                                <Col xs={12} md={6}>
                                 <Form.Group className="mb-3">
                                     <FloatingLabel
                                         controlId="floatingInput"
@@ -309,7 +304,7 @@ const UserForm = () => {
 
                 { parentShow && (
                     <Row>
-                        <Col xs={12}>
+                        <Col xs={12} md={6}>
                             <Form.Group className="mb-3" >
                                 <FloatingLabel
                                     controlId="floatingInput"
@@ -330,7 +325,7 @@ const UserForm = () => {
                                 </FloatingLabel>
                             </Form.Group>
                         </Col>
-                        <Col xs={12}>
+                        <Col xs={12} md={6}>
                             <Form.Group className="mb-3">
                                 <FloatingLabel
                                     controlId="floatingInput"
@@ -492,7 +487,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="adult-leader"
-                    label={(<>I have made a commitment with the Board, to be a Unit Leader, an Assistant Unit Leader, or another Key Role for this upcoming 2022-2023 Troop Year, and have already paid my Adult Registration in AHG Family. Please deduct my Adult Member Registration ($35) from my total Troop Dues.</>)}
+                    label={(<>I have made a commitment with the Board, to be a Unit Leader, an Assistant Unit Leader, or another Key Role for this upcoming 2022-2023 Troop Year, and have already paid my Adult Registration in AHGfamily. Please deduct my Adult Member Registration ($35) from my total Troop Dues.</>)}
                     className='mb-3'
                     checked={isAdultLeader}
                     onChange={(e) => {
@@ -573,19 +568,10 @@ const UserForm = () => {
                             isAdultLeader={isAdultLeader}
                         />
 
-                        <Form.Check
-                            type="switch"
-                            id="using-paypal"
-                            label={(<>Will you be using PayPal to pay for your troop dues?</>)}
-                            className='mb-3'
-                            onChange={(e) => {handleUsingPayPal(e)}}
-                            checked={usingPayPal}
-                            required
-                        />
                     </>
                 }
 
-                { usingPayPal &&
+
                     <>
                         <p>After you submit your registration, you will receive a PayPal invoice for your balance due to the troop. You may pay online or by check to avoid transaction fees. No cash, please.</p>
                         <p>Please provide your PayPal email address and/or email address for other invoicing.</p>
@@ -609,7 +595,7 @@ const UserForm = () => {
                             </FloatingLabel>
                         </Form.Group>
                     </>
-                }
+
 
                 <Form.Group className="mb-3">
                     <Button variant="primary" type="submit">

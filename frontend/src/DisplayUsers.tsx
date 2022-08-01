@@ -44,7 +44,6 @@ const DisplayUsers = () => {
                             <th>Parent Name</th>
                             <th>Email Address</th>
                             <th>Parent Adult Leader</th>
-                            <th>Using PayPal</th>
                             <th>PayPal Address</th>
                         </tr>
 
@@ -64,7 +63,6 @@ const DisplayUsers = () => {
                                             <td>{parent_name}</td>
                                             <td>{email_address}</td>
                                             <td>{is_adult_leader}</td>
-                                            <td>{using_paypal}</td>
                                             <td>{paypal_address}</td>
                                         </tr>
                                     )

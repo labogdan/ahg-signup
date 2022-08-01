@@ -15,5 +15,12 @@ $ npm install
 <ul>
     <li>node</li>
     <li>express</li>
-    <li></li>
+    <li>react</li>
+</ul>
+
+<p><b>integrations:</b></p>
+<ul>
+    <li>auth0</li>
+    <li>takeshape</li>
+    <li>heroku</li>
 </ul>

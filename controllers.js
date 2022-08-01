@@ -41,7 +41,7 @@ exports.getUsers = (req, res, next) => {
 exports.createUser = (req, res, next) => {
 
     const user = [ req.body ]
-    const addString = 'INSERT INTO users (first_name, last_name, age, grade, kroger_participate, kroger_enrolled, volunteer_positions, volunteer_other, parent_name, email_address, is_adult_leader, using_paypal, paypal_address) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)';
+    const addString = 'INSERT INTO users (first_name, last_name, age, grade, kroger_participate, kroger_enrolled, volunteer_positions, volunteer_other, parent_name, email_address, is_adult_leader, paypal_address) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)';
 
     console.log(user);
 

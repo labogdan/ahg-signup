@@ -21,7 +21,7 @@ function WelcomeModal(props: any) {
             </Modal.Header>
             <Modal.Body>
                 <p>
-                    If you haven't already, please go to <a href="https://www.ahgfamily.org/login" target="_blank">AHG Family</a> and register there first.
+                    If you haven't already, please go to <a href="https://www.ahgfamily.org/login" target="_blank">AHGfamily</a> and register there first.
                 </p>
             </Modal.Body>
             <Modal.Footer>
