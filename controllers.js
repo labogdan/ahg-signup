@@ -12,7 +12,7 @@ const pool = new Pool({ // create connection to database
 
 exports.getUsers = (req, res, next) => {
 
-    const getString = 'SELECT * FROM users';
+    const getString = 'SELECT * FROM users ORDER BY id DESC';
     pool.query(getString) // send query to select all rows from the 'my_activities' table
         .then(results => {
             let users = results.rows;
