@@ -489,6 +489,18 @@ const UserForm = () => {
 
                 </Form.Group>
 
+                <Form.Check
+                    type="switch"
+                    id="adult-leader"
+                    label={(<>I have made a commitment with the Board, to be a Unit Leader, an Assistant Unit Leader, or another Key Role for this upcoming 2022-2023 Troop Year, and have already paid my Adult Registration in AHG Family. Please deduct my Adult Member Registration ($35) from my total Troop Dues.</>)}
+                    className='mb-3'
+                    checked={isAdultLeader}
+                    onChange={(e) => {
+                        handleAdultLeader(e)
+                    }}
+                    required
+                />
+
                 <hr />
 
                 <Form.Check
@@ -512,17 +524,6 @@ const UserForm = () => {
                         required
                     />
 
-                    <Form.Check
-                        type="switch"
-                        id="adult-leader"
-                        label={(<>I have made a commitment with the Board, to be a Unit Leader, an Assistant Unit Leader, or another Key Role for this upcoming 2022-2023 Troop Year, and have already paid my Adult Registration in AHG Family. Please deduct my Adult Member Registration ($35) from my total Troop Dues.</>)}
-                        className='mb-3'
-                        checked={isAdultLeader}
-                        onChange={(e) => {
-                            handleAdultLeader(e)
-                        }}
-                        required
-                    />
                 </>
                 }
 
