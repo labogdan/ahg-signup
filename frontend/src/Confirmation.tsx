@@ -39,6 +39,18 @@ const Confirmation = () => {
                     < a href="https://media.trooptrack.com/troop_documents/66960/document/original/Request_for_Administration_of_Medication_Form.pdf" target="_blank">Request for Administration of Medication</a>  (required, 1 per girl/registered adult)
                 </Col>
             </Row>
+            <Row className="mb-3">
+                <Col>
+                    < a href="https://media.trooptrack.com/troop_documents/66961/document/original/AHG_High_Adventure_Activity_Medical_Form_VA9020.pdf" target="_blank">High Adventure Activity Medical Form</a>
+                </Col>
+            </Row>
+
+            <Row className="mb-3">
+                <Col>
+                    Put Parent Information Night on your calendar for August 29. Make sure to bring the required (and optional) hard copy forms to complete your registration process!
+                </Col>
+            </Row>
+
         </Container>
     )
 }
