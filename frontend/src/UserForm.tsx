@@ -35,6 +35,7 @@ const UserForm = () => {
     const [validated, setValidated] = useState(false);
     const [parentShow, setParentShow] = useState(false);
 
+    const [totalCost, setTotalCost] = useState(0);
     const [parentName, setParentName] = useState("");
     const [emailAddress, setEmailAddress] = useState("")
     const [krogerParticipateValue, setKrogerParticipateValue] = useState(false);
@@ -43,6 +44,10 @@ const UserForm = () => {
     const [volunteerOther, setVolunteerOther] = useState("");
     const [payPalAddress, setPayPalAddress] = useState("");
     const [isAdultLeader, setIsAdultLeader] = useState(false)
+
+    useEffect(() => {
+        console.log(totalCost);
+    }, [totalCost])
 
     const addFields = () => {
         let newfield = {
@@ -130,7 +135,7 @@ const UserForm = () => {
         } else {
             girls.map((value, index) => {
                 try {
-                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther, parentName, emailAddress, isAdultLeader, payPalAddress])
+                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther, parentName, emailAddress, isAdultLeader, payPalAddress, totalCost])
                         .then( () => {
                             setModalShow(true);
                         })
@@ -565,6 +570,7 @@ const UserForm = () => {
                             krogerEnrolledValue={krogerEnrolledValue}
                             pipas={girls}
                             isAdultLeader={isAdultLeader}
+                            setTotalCost={setTotalCost}
                         />
 
                     </>

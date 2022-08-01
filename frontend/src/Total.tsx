@@ -22,6 +22,7 @@ function SuccessModal(props: any) {
 
     })
     total += pipaFee;
+    props.setTotalCost(total);
 
     return (
         <>
