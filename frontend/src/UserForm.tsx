@@ -15,6 +15,7 @@ import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 
 import Header from "./Header";
 import SuccessModal from "./SuccessModal";
+import WelcomeModal from "./WelcomeModal";
 import Total from "./Total";
 
 const UserForm = () => {
@@ -26,7 +27,9 @@ const UserForm = () => {
             grade: ''
         }
     ])
+
     const [modalShow, setModalShow] = React.useState(false);
+    const [welcomeShow, setWelcomeShow] = React.useState(true);
     const [totalShow, setTotalShow] = React.useState(false);
     const [krogerShow, setKrogerShow] = React.useState(false);
     const [validated, setValidated] = useState(false);
@@ -649,6 +652,10 @@ const UserForm = () => {
         <SuccessModal
             show={modalShow}
             onHide={() => setModalShow(false)}
+        />
+        <WelcomeModal
+            show={welcomeShow}
+            onHide={() => setWelcomeShow(false)}
         />
     </Container>
 
