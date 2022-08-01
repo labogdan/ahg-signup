@@ -182,7 +182,7 @@ const UserForm = () => {
                     return (
                             <div key={index} style={{marginBottom: '20px'}}>
                                 <Row>
-                                <Col>
+                                <Col xs={12}>
                                 <Form.Group className="mb-3" >
                                     <FloatingLabel
                                         controlId="floatingInput"
@@ -203,7 +203,7 @@ const UserForm = () => {
                                     </FloatingLabel>
                                 </Form.Group>
                                 </Col>
-                                <Col>
+                                <Col xs={12}    >
                                 <Form.Group className="mb-3">
                                     <FloatingLabel
                                         controlId="floatingInput"
@@ -309,7 +309,7 @@ const UserForm = () => {
 
                 { parentShow && (
                     <Row>
-                        <Col>
+                        <Col xs={12}>
                             <Form.Group className="mb-3" >
                                 <FloatingLabel
                                     controlId="floatingInput"
@@ -330,7 +330,7 @@ const UserForm = () => {
                                 </FloatingLabel>
                             </Form.Group>
                         </Col>
-                        <Col>
+                        <Col xs={12}>
                             <Form.Group className="mb-3">
                                 <FloatingLabel
                                     controlId="floatingInput"
@@ -494,7 +494,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="troop-finances"
-                    label={(<>I have reviewed the Troop Finances Information on page 10 of the <a href="">Troop Policy & Guidelines Handbook</a>, and I understand the costs associated with participation in AHG Troop VA9020.</>)}
+                    label={(<>I have reviewed the Troop Finances Information on page 10 and 11 of the <a href="">Troop Policy & Guidelines Handbook</a>, and I understand the costs associated with participation in AHG Troop VA9020.</>)}
                     className='mb-3'
                     onChange={(e) => {setTotalShow(true)}}
                     required
@@ -529,7 +529,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="kroger_participate"
-                    label={(<>Does your family actively shop at Kroger, and will you participate in the Kroger Community Rewards Program fundraiser? (Answering No means that you are opting out and will pay the opt-out fee.)</>)}
+                    label={(<>My family actively shops at Kroger, and will participate in the Kroger Community Rewards Program fundraiser. (Answering No means that you are opting out and will pay the opt-out fee.)</>)}
                     className='mb-3'
                     onChange={(e) => {handleKrogerParticipateChange(e)}}
                     checked={krogerParticipateValue}

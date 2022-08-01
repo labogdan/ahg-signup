@@ -58,7 +58,7 @@ function SuccessModal(props: any) {
 
             { props.isAdultLeader && (
                 <tr className="highlight">
-                    <td>Adult Leader Reimbursement</td>
+                    <td>Adult Leader Reimbursement (UL, AUL and key roles only)</td>
                     <td>-$35</td>
                     <td>1</td>
                 </tr>
