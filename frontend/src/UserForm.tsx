@@ -493,7 +493,6 @@ const UserForm = () => {
                     onChange={(e) => {
                         handleAdultLeader(e)
                     }}
-                    required
                 />
 
                 <hr />
