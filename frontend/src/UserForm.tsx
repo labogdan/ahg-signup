@@ -103,20 +103,14 @@ const UserForm = () => {
     }
 
     const handleKrogerParticipateChange = (event: any) => {
-        if (event.target.value === 'yes') {
-            setKrogerParticipateValue(true);
+        if (event.target.checked) {
             setKrogerShow(true);
-        } else {
-            setKrogerParticipateValue(false)
         }
+        setKrogerParticipateValue(event.target.checked);
     }
 
     const handleKrogerEnrolledChange = (event: any) => {
-        if (event.target.value === 'yes') {
-            setKrogerEnrolledValue(true)
-        } else {
-            setKrogerEnrolledValue(false)
-        }
+        setKrogerEnrolledValue(event.target.checked);
     }
 
     const handleVolunteerChange = (event: any) => {
@@ -532,27 +526,16 @@ const UserForm = () => {
                 </>
                 }
 
-                {(<>Does your family actively shop at Kroger, and will you participate in the Kroger Community Rewards Program fundraiser? (Answering No means that you are opting out and will pay the opt-out fee.)</>)}
-                <div onChange={(e) => handleKrogerParticipateChange(e)}>
-                    <Form.Check
-                        inline
-                        name="kroger_participate"
-                        type="radio"
-                        label="Yes"
-                        value="yes"
-                        className='mb-3'
-                        required
-                    />
-                    <Form.Check
-                        inline
-                        name="kroger_participate"
-                        type="radio"
-                        label="No"
-                        value="no"
-                        className='mb-3'
-                        required
-                    />
-                </div>
+                <Form.Check
+                    type="switch"
+                    id="kroger_participate"
+                    label={(<>Does your family actively shop at Kroger, and will you participate in the Kroger Community Rewards Program fundraiser? (Answering No means that you are opting out and will pay the opt-out fee.)</>)}
+                    className='mb-3'
+                    onChange={(e) => {handleKrogerParticipateChange(e)}}
+                    checked={krogerParticipateValue}
+                    required
+                />
+
 
                 {krogerShow && (
                     <>
@@ -565,27 +548,16 @@ const UserForm = () => {
                         </Col>
                     </Row>
 
-                     {(<>I have actively enrolled in the Kroger Community Rewards program for the benefit of AHG Troop 9020 and will continue the designation throughout the Troop Program Year 2022-2023.</>)}
-                        <div onChange={(e) => handleKrogerEnrolledChange(e)}>
-                            <Form.Check
-                                inline
-                                name="kroger_enrolled"
-                                type="radio"
-                                label="Yes"
-                                value="yes"
-                                className='mb-3'
-                                required
-                            />
-                            <Form.Check
-                                inline
-                                name="kroger_enrolled"
-                                type="radio"
-                                label="No"
-                                value="no"
-                                className='mb-3'
-                                required
-                            />
-                        </div>
+                     {(<></>)}
+                        <Form.Check
+                            type="switch"
+                            id="kroger_participate"
+                            label={(<>I have actively enrolled in the Kroger Community Rewards program for the benefit of AHG Troop 9020 and will continue the designation throughout the Troop Program Year 2022-2023.</>)}
+                            className='mb-3'
+                            onChange={(e) => {handleKrogerEnrolledChange(e)}}
+                            checked={krogerEnrolledValue}
+                            required
+                        />
                     </>
                     )
                 }
