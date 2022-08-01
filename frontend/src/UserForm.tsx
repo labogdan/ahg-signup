@@ -534,7 +534,6 @@ const UserForm = () => {
                     className='mb-3'
                     onChange={(e) => {handleKrogerParticipateChange(e)}}
                     checked={krogerParticipateValue}
-                    required
                 />
 
 
@@ -557,7 +556,6 @@ const UserForm = () => {
                             className='mb-3'
                             onChange={(e) => {handleKrogerEnrolledChange(e)}}
                             checked={krogerEnrolledValue}
-                            required
                         />
                     </>
                     )

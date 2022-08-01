@@ -7,3 +7,13 @@ $ npm install <br />
 $ cd frontend <br />
 $ npm install
 </code>
+
+<p>The root directory contains the server</p>
+<p>/frontend contains the react app</p>
+
+<p><b>stack:</b></p>
+<ul>
+    <li>node</li>
+    <li>express</li>
+    <li></li>
+</ul>
