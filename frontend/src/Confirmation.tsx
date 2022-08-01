@@ -34,6 +34,11 @@ const Confirmation = () => {
                     < a href="https://media.trooptrack.com/troop_documents/66959/document/original/AHG_Health_and_Medical_Form_VA9020.pdf" target="_blank">Health and Medical Form</a> (required, 1 per girl/registered adult)
                 </Col>
             </Row>
+            <Row className="mb-3">
+                <Col>
+                    < a href="https://media.trooptrack.com/troop_documents/66960/document/original/Request_for_Administration_of_Medication_Form.pdf" target="_blank">Request for Administration of Medication</a>  (required, 1 per girl/registered adult)
+                </Col>
+            </Row>
         </Container>
     )
 }
