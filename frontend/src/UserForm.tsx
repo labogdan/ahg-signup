@@ -518,7 +518,7 @@ const UserForm = () => {
                         type="switch"
                         id="troop-finances-pipa"
                         label={(<>I understand that Pioneer Level (Ages 12-14) and Patriot Level (Ages 14-18) Girl
-                            Members will be accessed an additional mandatory fee of $40 per girl as stated in the Troop
+                            Members will be assessed an additional mandatory fee of $40 per girl as stated in the Troop
                             Finance policy.</>)}
                         className='mb-3'
                         required

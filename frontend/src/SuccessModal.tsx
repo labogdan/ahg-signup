@@ -25,9 +25,9 @@ function SuccessModal(props: any) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <h4>You are all set</h4>
+                <h4>Your troop registration has been submitted.</h4>
                 <p>
-                    We've received your registration.  A PayPal invoice will follow.
+                    Welcome to AHG Troop 9020.  We look forward to seeing you soon.
                 </p>
             </Modal.Body>
             <Modal.Footer>
