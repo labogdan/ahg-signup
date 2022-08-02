@@ -19,7 +19,8 @@ const Confirmation = () => {
                     <ul>
                         <li className="mb-3">Look out for an email from our Treasurer to pay Troop Dues.</li>
                         <li className="mb-3">Need uniforms or handbooks? Order directly through the <a href="https://store.americanheritagegirls.org" target="_blank">AHG store</a>. No group orders this year.</li>
-                        <li className="mb-3">Put Parent Information Night on your calendar for August 29th! Please bring the required (and recommended) hard copy forms to complete your registration process.</li>
+                        <li className="mb-3">Put August 29th on your calendar for our Kickoff Meeting! Please bring the required (and recommended) hard copy forms to complete your registration process.</li>
+                        <li className="mb-3"><strong>PLEASE PRINT and complete each these forms and bring them with you to the Kickoff meeting on August 29th.</strong></li>
                         <li className="mb-3" style={{marginLeft: '40px'}}><a href="https://media.trooptrack.com/troop_documents/66958/document/original/Troop_VA9020_Meeting_Permission_Slip.pdf" target="_blank">Troop Meeting Permission Slip</a> (required, 1 per family)</li>
                         <li className="mb-3" style={{marginLeft: '40px'}}><a href="https://media.trooptrack.com/troop_documents/66959/document/original/AHG_Health_and_Medical_Form_VA9020.pdf" target="_blank">Health and Medical Form</a> (required, 1 per girl/registered adult)</li>
                         <li className="mb-3" style={{marginLeft: '40px'}}><a href="https://media.trooptrack.com/troop_documents/66960/document/original/Request_for_Administration_of_Medication_Form_VA9020.pdf" target="_blank">Request for Administration of Medication</a>  (required, 1 per girl/registered adult)</li>
