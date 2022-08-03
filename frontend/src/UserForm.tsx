@@ -550,7 +550,7 @@ const UserForm = () => {
                      {(<></>)}
                         <Form.Check
                             type="switch"
-                            id="kroger_participate"
+                            id="kroger_enrolled"
                             label={(<>I have actively enrolled in the Kroger Community Rewards program for the benefit of AHG Troop 9020 and will continue the designation throughout the Troop Program Year 2022-2023.</>)}
                             className='mb-3'
                             onChange={(e) => {handleKrogerEnrolledChange(e)}}
