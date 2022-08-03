@@ -361,7 +361,7 @@ const UserForm = () => {
                     <Row>
                         <Col>
                             <Form.Check
-                                label="Administrator / Registrar"
+                                label="Administrative / Registrar"
                                 name="group1"
                                 type="checkbox"
                                 value="registrar"
