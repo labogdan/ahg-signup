@@ -361,14 +361,14 @@ const UserForm = () => {
                     <Row>
                         <Col>
                             <Form.Check
-                                label="Administration / Registrar"
+                                label="Administrator / Registrar"
                                 name="group1"
                                 type="checkbox"
                                 value="registrar"
                             />
 
                             <Form.Check
-                                label="Assistant Unit leader"
+                                label="Assistant Unit Leader"
                                 name="group1"
                                 type="checkbox"
                                 value="assistantLeader"
@@ -389,7 +389,7 @@ const UserForm = () => {
                             />
 
                             <Form.Check
-                                label="First Aid"
+                                label="First Aid Certified"
                                 name="group1"
                                 type="checkbox"
                                 value="firstAid"
