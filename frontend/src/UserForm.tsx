@@ -17,6 +17,7 @@ import Header from "./Header";
 import SuccessModal from "./SuccessModal";
 import WelcomeModal from "./WelcomeModal";
 import Total from "./Total";
+import {TakeShape} from "./components/TakeShape";
 
 const UserForm = () => {
     const [girls, setGirls] = useState([
@@ -168,6 +169,7 @@ const UserForm = () => {
     },[girls])
 
     return <Container style={{maxWidth: '800px'}}>
+        <TakeShape position='contact'/>
         <Header />
         <Row>
             <Col>
