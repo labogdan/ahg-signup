@@ -293,7 +293,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="policy-guidelines"
-                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/66953/document/original/2022-2023_VA9020_Policies___Guidelines_Handbook.pdf" target="_blank">AHG VA9020 Troop Policy & Guidelines Handbook</a> for the 2022-2023 program year, and agree to the Troop Policies and Guidelines contained therein.</>)}
+                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/66953/document/original/2022-2023_VA9020_Policies___Guidelines_Handbook.pdf" target="_blank">AHG VA9020 Troop Policy & Guidelines Handbook</a> for the 2024-2024 program year, and agree to the Troop Policies and Guidelines contained therein.</>)}
                     className='mb-3'
                     required
                 />
@@ -492,7 +492,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="adult-leader"
-                    label={(<>I have made a commitment with the Board, to be a Unit Leader, an Assistant Unit Leader, or another Key Role for this upcoming 2022-2023 Troop Year, and have already paid my Adult Registration in AHGfamily. Please deduct my Adult Member Registration ($35) from my total Troop Dues.</>)}
+                    label={(<>I have made a commitment with the Board, to be a Unit Leader, an Assistant Unit Leader, or another Key Role for this upcoming 2023-2024 Troop Year, and have already paid my Adult Registration in AHGfamily. Please deduct my Adult Member Registration ($35) from my total Troop Dues.</>)}
                     className='mb-3'
                     checked={isAdultLeader}
                     onChange={(e) => {
@@ -551,7 +551,7 @@ const UserForm = () => {
                         <Form.Check
                             type="switch"
                             id="kroger_enrolled"
-                            label={(<>I have actively enrolled in the Kroger Community Rewards program for the benefit of AHG Troop 9020 and will continue the designation throughout the Troop Program Year 2022-2023.</>)}
+                            label={(<>I have actively enrolled in the Kroger Community Rewards program for the benefit of AHG Troop 9020 and will continue the designation throughout the Troop Program Year 2023-2024.</>)}
                             className='mb-3'
                             onChange={(e) => {handleKrogerEnrolledChange(e)}}
                             checked={krogerEnrolledValue}
