@@ -516,7 +516,7 @@ const UserForm = () => {
                     <Form.Check
                         type="switch"
                         id="troop-finances-pipa"
-                        label={(<>- [ ] I understand there will be additional costs throughout the year for special activities and events, and at home badges/patches.</>)}
+                        label={(<>- [ ] I understand there is an additional cost for uniforms and handbooks, as well as special events, activities, and at-home badges/patches.</>)}
                         className='mb-3'
                         required
                     />

@@ -43,7 +43,7 @@ function SuccessModal(props: any) {
                 <>
                     <tr>
                         <td>Pi/Pa Trip Fund</td>
-                        <td>$40 per Pioneer / Patriot</td>
+                        <td>$ per Pioneer / Patriot</td>
                         <td>{pipas}</td>
                     </tr>
                 </>
