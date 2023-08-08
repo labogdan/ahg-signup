@@ -8,7 +8,7 @@ function SuccessModal(props: any) {
     let total = girlTotal + fee;
 
     if (props.isAdultLeader) {
-        total -= 35;
+        total -= 40;
     }
 
     let pipaFee = 0;
@@ -16,8 +16,8 @@ function SuccessModal(props: any) {
 
     props.pipas.map((girl: any) => {
         if (girl.grade >= 7) {
-            pipaFee += 40;
-            pipas++;
+            // pipaFee += 40;
+            // pipas++;
         }
 
     })
@@ -60,7 +60,7 @@ function SuccessModal(props: any) {
             { props.isAdultLeader && (
                 <tr className="highlight">
                     <td>Adult Leader Reimbursement (UL, AUL and key roles only)</td>
-                    <td>-$35</td>
+                    <td>-$40</td>
                     <td>1</td>
                 </tr>
             )}

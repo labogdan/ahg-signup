@@ -293,7 +293,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="policy-guidelines"
-                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/66953/document/original/2022-2023_VA9020_Policies___Guidelines_Handbook.pdf" target="_blank">AHG VA9020 Troop Policy & Guidelines Handbook</a> for the 2024-2024 program year, and agree to the Troop Policies and Guidelines contained therein.</>)}
+                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/66953/document/original/2022-2023_VA9020_Policies___Guidelines_Handbook.pdf" target="_blank">AHG VA9020 Troop Policy & Guidelines Handbook</a> for the 2023-2024 program year, and agree to the Troop Policies and Guidelines contained therein.</>)}
                     className='mb-3'
                     required
                 />
@@ -492,7 +492,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="adult-leader"
-                    label={(<>I have made a commitment with the Board, to be a Unit Leader, an Assistant Unit Leader, or another Key Role for this upcoming 2023-2024 Troop Year, and have already paid my Adult Registration in AHGfamily. Please deduct my Adult Member Registration ($35) from my total Troop Dues.</>)}
+                    label={(<>I have made a commitment with the Board, to be a Unit Leader, an Assistant Unit Leader, or another Key Role for this upcoming 2023-2024 Troop Year, and have already paid my Adult Registration in AHGfamily. Please deduct my Adult Member Registration ($40) from my total Troop Dues.</>)}
                     className='mb-3'
                     checked={isAdultLeader}
                     onChange={(e) => {
@@ -516,9 +516,7 @@ const UserForm = () => {
                     <Form.Check
                         type="switch"
                         id="troop-finances-pipa"
-                        label={(<>I understand that Pioneer Level (Ages 12-14) and Patriot Level (Ages 14-18) Girl
-                            Members will be assessed an additional mandatory fee of $40 per girl as stated in the Troop
-                            Finance policy.</>)}
+                        label={(<>- [ ] I understand there will be additional costs throughout the year for special activities and events, and at home badges/patches.</>)}
                         className='mb-3'
                         required
                     />
