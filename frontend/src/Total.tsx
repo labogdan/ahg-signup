@@ -8,7 +8,7 @@ function SuccessModal(props: any) {
     let total = girlTotal + fee;
 
     if (props.isAdultLeader) {
-        total -= 35;
+        total -= 40;
     }
 
     let pipaFee = 0;
