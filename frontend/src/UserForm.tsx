@@ -293,7 +293,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="policy-guidelines"
-                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/66953/document/original/2022-2023_VA9020_Policies___Guidelines_Handbook.pdf" target="_blank">AHG VA9020 Troop Policy & Guidelines Handbook</a> for the 2023-2024 program year, and agree to the Troop Policies and Guidelines contained therein.</>)}
+                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">AHG VA9020 Troop Policy & Guidelines Handbook</a> for the 2023-2024 program year, and agree to the Troop Policies and Guidelines contained therein.</>)}
                     className='mb-3'
                     required
                 />
@@ -301,7 +301,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="parent-participation"
-                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/66953/document/original/2022-2023_VA9020_Policies___Guidelines_Handbook.pdf" target="_blank">Parent Participation Policy</a> on page 9 of the Troop Policy & Guidelines Handbook, and agree to actively participate in the Troop and contribute to the Troop's success.</>)}
+                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">Parent Participation Policy</a> on page 9 of the Troop Policy & Guidelines Handbook, and agree to actively participate in the Troop and contribute to the Troop's success.</>)}
                     className='mb-3'
                     onChange={(e) => showParentInfo(e)}
                     required
@@ -505,7 +505,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="troop-finances"
-                    label={(<>I have reviewed the Troop Finances Information on page 10 and 11 of the <a href="https://media.trooptrack.com/troop_documents/66953/document/original/2022-2023_VA9020_Policies___Guidelines_Handbook.pdf" target="_blank">Troop Policy & Guidelines Handbook</a>, and I understand the costs associated with participation in AHG Troop VA9020.</>)}
+                    label={(<>I have reviewed the Troop Finances Information on page 10 and 11 of the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">Troop Policy & Guidelines Handbook</a>, and I understand the costs associated with participation in AHG Troop VA9020.</>)}
                     className='mb-3'
                     onChange={(e) => {setTotalShow(true)}}
                     required
