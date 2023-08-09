@@ -21,8 +21,9 @@ function WelcomeModal(props: any) {
             </Modal.Header>
             <Modal.Body>
                 <p>
-                    If you haven't already, please go to <a href="https://www.ahgfamily.org/login" target="_blank">AHGfamily</a> and register there first.
+                    <strong>This is step 3 of the registration process.</strong>
                 </p>
+                <p>Please complete step 1 and <a href="https://www.ahgfamily.org/login" target="_blank">step 2 (AHG Family website)</a> from the registration email first.</p>
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={closeModal}>Close</Button>
