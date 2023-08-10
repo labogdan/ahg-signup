@@ -430,15 +430,15 @@ const UserForm = () => {
                                 value="lifeguard"
                             />
 
+                        </Col>
+                        <Col>
+
                             <Form.Check
                                 label="Registrar"
                                 name="group1"
                                 type="checkbox"
                                 value="registrar"
                             />
-
-                        </Col>
-                        <Col>
 
                             <Form.Check
                                 label="Service Project Coordinator"
@@ -589,6 +589,7 @@ const UserForm = () => {
 
                     <>
                         <p>After you submit your registration, you will receive a PayPal invoice for your balance due to the troop. You may pay online or by check to avoid transaction fees. No cash, please.</p>
+                        <p><strong>Troop Dues must be received by August 31, 2023.</strong></p>
                         <p>Please provide your PayPal email address and/or email address for other invoicing.</p>
                         <Form.Group className="mb-3">
                             <FloatingLabel
