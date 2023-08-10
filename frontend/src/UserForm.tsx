@@ -382,24 +382,10 @@ const UserForm = () => {
                             />
 
                             <Form.Check
-                                label="Health & Safety Lead"
-                                name="group1"
-                                type="checkbox"
-                                value="healthandsafety"
-                            />
-
-                            <Form.Check
                                 label="CPR / First Aid Certified"
                                 name="group1"
                                 type="checkbox"
                                 value="cpr"
-                            />
-
-                            <Form.Check
-                                label="Girl Leadership - Big/Little Sister"
-                                name="group1"
-                                type="checkbox"
-                                value="girlleadership"
                             />
 
                             <Form.Check
@@ -410,10 +396,24 @@ const UserForm = () => {
                             />
 
                             <Form.Check
-                                label="Sign In / Sign Out Team"
+                                label="Girl Leadership - Big/Little Sister"
                                 name="group1"
                                 type="checkbox"
-                                value="greeter"
+                                value="girlleadership"
+                            />
+
+                            <Form.Check
+                                label="Health & Safety Lead"
+                                name="group1"
+                                type="checkbox"
+                                value="healthandsafety"
+                            />
+
+                            <Form.Check
+                                label="Lifeguard Certified"
+                                name="group1"
+                                type="checkbox"
+                                value="lifeguard"
                             />
 
                             <Form.Check
@@ -424,21 +424,12 @@ const UserForm = () => {
                             />
 
                             <Form.Check
-                                label="Lifeguard Certified"
-                                name="group1"
-                                type="checkbox"
-                                value="lifeguard"
-                            />
-
-                        </Col>
-                        <Col>
-
-                            <Form.Check
                                 label="Registrar"
                                 name="group1"
                                 type="checkbox"
                                 value="registrar"
                             />
+
 
                             <Form.Check
                                 label="Service Project Coordinator"
@@ -447,11 +438,21 @@ const UserForm = () => {
                                 value="serviceProject"
                             />
 
+                        </Col>
+                        <Col>
+
                             <Form.Check
                                 label="Setup / Teardown"
                                 name="group1"
                                 type="checkbox"
                                 value="setupCleanupTeam"
+                            />
+                            
+                            <Form.Check
+                                label="Sign In / Sign Out Team"
+                                name="group1"
+                                type="checkbox"
+                                value="greeter"
                             />
 
                             <Form.Check
@@ -469,37 +470,30 @@ const UserForm = () => {
                             />
 
                             <Form.Check
-                                label="Board Member"
+                                style={{marginLeft: '1.5rem'}}
+                                label="Troop Coordinator"
                                 name="group1"
                                 type="checkbox"
-                                value="boardmember"
+                                value="troopcoordinator"
                             />
-                                <Form.Check
-                                    disabled={!volunteerValues.includes('boardmember')}
-                                    style={{marginLeft: '1.5rem'}}
-                                    label="Troop Coordinator"
-                                    name="group3"
-                                    type="radio"
-                                    value="troopcoordinator"
-                                />
-                                <Form.Check
-                                    label="Assistant TCMember"
-                                    name="group3"
-                                    type="radio"
-                                    value="assistanttc"
-                                />
-                                <Form.Check
-                                    label="Shepherd"
-                                    name="group3"
-                                    type="radio"
-                                    value="shepherd"
-                                />
-                                <Form.Check
-                                    label="Treasurer"
-                                    name="group3"
-                                    type="radio"
-                                    value="reasurer"
-                                />
+                            <Form.Check
+                                label="Assistant Troop Coordinator"
+                                name="group1"
+                                type="checkbox"
+                                value="assistanttc"
+                            />
+                            <Form.Check
+                                label="Shepherd"
+                                name="group1"
+                                type="checkbox"
+                                value="shepherd"
+                            />
+                            <Form.Check
+                                label="Treasurer"
+                                name="group1"
+                                type="checkbox"
+                                value="reasurer"
+                            />
 
                             <Form.Check
                                 label="Other"
