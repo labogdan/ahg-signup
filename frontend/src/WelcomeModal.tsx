@@ -18,7 +18,8 @@ function WelcomeModal(props: any) {
             <Modal.Header closeButton>
                 <img src={woven} style={{maxWidth: '150px'}} />
                 <Modal.Title style={{fontFamily: 'EB Garamond'}} id="contained-modal-title-vcenter">
-                    Welcome friends! We're happy to have ewe here.
+                    <h1>Welcome friends!</h1>
+                    <h3> We're happy to have ewe here.</h3>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

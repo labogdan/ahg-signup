@@ -171,7 +171,7 @@ const UserForm = () => {
         <Header />
         <Row>
             <Col>
-                <h1 style={{fontFamily: 'EB Garamond'}}>Welcome to American Heritage Girls Troop VA9020 Registration!</h1>
+                <h1 style={{fontFamily: 'EB Garamond'}}>Welcome to American Heritage Girls <br /> Troop VA9020 Registration!</h1>
                 <h5>Please fill out the following form to register your girls.</h5>
             </Col>
         </Row>
