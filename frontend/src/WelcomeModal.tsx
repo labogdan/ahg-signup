@@ -23,7 +23,7 @@ function WelcomeModal(props: any) {
                 <p>
                     <strong>This is step 3 of the registration process.</strong>
                 </p>
-                <p>Please complete Step 1 and Step 2 - <a href="https://www.ahgfamily.org/login" target="_blank">AHG Family Website</a> from the registration email first.</p>
+                <p>Please complete Step 1 and Step 2 - <a href="https://www.ahgfamily.org/login" target="_blank">AHGfamily Website</a> from the registration email first.</p>
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={closeModal}>Close</Button>

@@ -518,19 +518,6 @@ const UserForm = () => {
                         handleAdultLeader(e)
                     }}
                 />
-                {isAdultLeader &&
-                    <>
-                        <p className="mb-3">Please select your Key Role Volunteer Position.</p>
-                        <Form.Control
-                            type="text"
-                            name="keyRolePosition"
-                            placeholder="Key Role Volunteer Position"
-                            value={parentName}
-                            onChange={(e) => handleNameChange(e)}
-                            required
-                        />
-                    </>
-                }
 
                 <hr />
 
