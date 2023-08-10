@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from "react-bootstrap/Button";
 
 import logo from './image/ahg-horizontal.jpg';
-import wovenLogo from './image/WOVEN-logo.png';
+import wovenLogo from './image/WOVEN-logo-resize.png';
 
 const LoginButton = () => {
     const { loginWithRedirect } = useAuth0();
@@ -38,7 +38,7 @@ const Header = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="justify-content-end" style={{ zIndex:'2000', width: "100%", position: 'absolute', top: '0' }}>
+                    <Nav className="justify-content-end" style={{ zIndex:'2000', width: "100%", position: 'absolute', top: '18px', right: '20px' }}>
                         <Button href='/admin'>Admin</Button>
                         <LogoutButton />
                     </Nav>
