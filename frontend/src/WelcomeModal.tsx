@@ -24,8 +24,8 @@ function WelcomeModal(props: any) {
             </Modal.Header>
             <Modal.Body>
                 <p>
-                    <strong>This is step 3 of the registration process.</strong>
-                    Please complete Step 1 and Step 2 - <a href="https://www.ahgfamily.org/login" target="_blank">AHGfamily Member Registration</a> prior to continuing.
+                    <strong>This is STEP 3: Troop Registration.</strong>
+                    Have you completed Step 2 at <a href="https://www.ahgfamily.org/login" target="_blank">AHGfamily</a>? If yes, continue on, we are looking forward to seeing you this year! 
                 </p>
             </Modal.Body>
             <Modal.Footer>

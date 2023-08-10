@@ -38,7 +38,7 @@ const Header = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="justify-content-end" style={{ width: "100%", position: 'absolute', top: '0' }}>
+                    <Nav className="justify-content-end" style={{ zIndex:'2000', width: "100%", position: 'absolute', top: '0' }}>
                         <Button href='/admin'>Admin</Button>
                         <LogoutButton />
                     </Nav>
