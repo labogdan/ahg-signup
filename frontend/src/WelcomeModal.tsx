@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import woven from './image/WOVEN-logo.png';
+import woven from './image/WOVEN-sheep.png';
 
 function WelcomeModal(props: any) {
 
