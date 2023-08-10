@@ -475,6 +475,8 @@ const UserForm = () => {
                                 value="boardmember"
                             />
                                 <Form.Check
+                                    disabled={!volunteerValues.includes('boardmember')}
+                                    style={{marginLeft: '1.5rem'}}
                                     label="Troop Coordinator"
                                     name="group3"
                                     type="radio"
