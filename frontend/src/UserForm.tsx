@@ -361,53 +361,67 @@ const UserForm = () => {
                     <Row>
                         <Col>
                             <Form.Check
-                                label="Administrative / Registrar"
+                                label="Administrative Helper (Advancement / Records)"
                                 name="group1"
                                 type="checkbox"
-                                value="registrar"
+                                value="administrator"
                             />
 
                             <Form.Check
                                 label="Assistant Unit Leader"
                                 name="group1"
                                 type="checkbox"
-                                value="assistantLeader"
+                                value="assistantleader"
                             />
 
                             <Form.Check
-                                    label="Childcare"
-                                    name="group1"
-                                    type="checkbox"
-                                    value="childcare"
-                                />
+                                label="Childcare Team"
+                                name="group1"
+                                type="checkbox"
+                                value="childcare"
+                            />
 
                             <Form.Check
-                                label="CPR Certified"
+                                label="Health & Safety Lead"
+                                name="group1"
+                                type="checkbox"
+                                value="healthandsafety"
+                            />
+
+                            <Form.Check
+                                label="CPR / First Aid Certified"
                                 name="group1"
                                 type="checkbox"
                                 value="cpr"
                             />
 
                             <Form.Check
-                                label="First Aid Certified"
+                                label="Girl Leadership - Big/Little Sister"
                                 name="group1"
                                 type="checkbox"
-                                value="firstAid"
+                                value="girlleadership"
                             />
 
                             <Form.Check
-                                label="Fundraising"
+                                label="Fundraising Coordinator"
                                 name="group1"
                                 type="checkbox"
                                 value="fundraising"
                             />
 
                             <Form.Check
-                                    label="Greeter"
-                                    name="group1"
-                                    type="checkbox"
-                                    value="greeter"
-                                />
+                                label="Sign In / Sign Out Team"
+                                name="group1"
+                                type="checkbox"
+                                value="greeter"
+                            />
+
+                            <Form.Check
+                                label="Outdoor Activities Coordinator"
+                                name="group1"
+                                type="checkbox"
+                                value="outdooractivities"
+                            />
 
                             <Form.Check
                                 label="Lifeguard Certified"
@@ -416,36 +430,49 @@ const UserForm = () => {
                                 value="lifeguard"
                             />
 
+                        </Col>
+                        <Col>
+
                             <Form.Check
-                                label="Service Project"
+                                label="Service Project Coordinator"
                                 name="group1"
                                 type="checkbox"
                                 value="serviceProject"
                             />
 
-
-                        </Col>
-                        <Col>
-
                             <Form.Check
-                                label="Setup / Cleanup Team"
+                                label="Setup / Teardown"
                                 name="group1"
                                 type="checkbox"
                                 value="setupCleanupTeam"
                             />
 
                             <Form.Check
-                                label="Special Events"
+                                label="Special Events Helper"
                                 name="group1"
                                 type="checkbox"
                                 value="special_eventsCoordinator"
                             />
 
                             <Form.Check
-                                label="Troop Shepherd"
+                                label="Board Member (Troop Coordinator, Assistant Troop Coordinator)"
                                 name="group1"
                                 type="checkbox"
-                                value="troopShepherd"
+                                value="troopcoordinator"
+                            />
+
+                            <Form.Check
+                                label="Board Member (Troop Shepherd, Troop Treasurer)"
+                                name="group1"
+                                type="checkbox"
+                                value="troopshepherdtreasurer"
+                            />
+
+                            <Form.Check
+                                label="Registrar"
+                                name="group1"
+                                type="checkbox"
+                                value="registrar"
                             />
 
                             <Form.Check
@@ -460,14 +487,6 @@ const UserForm = () => {
                                 name="group1"
                                 type="checkbox"
                                 value="unitLeader"
-                            />
-
-
-                            <Form.Check
-                                label="Undecided - please have a board member contact me"
-                                name="group1"
-                                type="checkbox"
-                                value="undecided"
                             />
 
                             <Form.Check
@@ -492,13 +511,26 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="adult-leader"
-                    label={(<>I have made a commitment with the Board, to be a Unit Leader, an Assistant Unit Leader, or another Key Role for this upcoming 2023-2024 Troop Year, and have already paid my Adult Registration in AHGfamily. Please deduct my Adult Member Registration ($40) from my total Troop Dues.</>)}
+                    label={(<>The Board and I have discussed and agreed that this coming troop year 2023-2024, I have a Key Role Volunteer Position (Unit Leader, Assistant Unit Leader, Specified Other). I have already paid my AHG Adult Member Registration in AHGfamily. Please deduct my Adult Member Registration ($40) from my total Troop Dues.</>)}
                     className='mb-3'
                     checked={isAdultLeader}
                     onChange={(e) => {
                         handleAdultLeader(e)
                     }}
                 />
+                {isAdultLeader &&
+                    <>
+                        <p className="mb-3">Please select your Key Role Volunteer Position.</p>
+                        <Form.Control
+                            type="text"
+                            name="keyRolePosition"
+                            placeholder="Key Role Volunteer Position"
+                            value={parentName}
+                            onChange={(e) => handleNameChange(e)}
+                            required
+                        />
+                    </>
+                }
 
                 <hr />
 
