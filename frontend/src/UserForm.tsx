@@ -171,7 +171,7 @@ const UserForm = () => {
         <Header />
         <Row>
             <Col>
-                <h1>Welcome to the American Heritage Girls VA9020 Signup Portal!</h1>
+                <h1 style={{fontFamily: 'EB Garamond'}}>Welcome to the American Heritage Girls VA9020 Signup Portal!</h1>
                 <h5>Please fill out the following form to register your girls.</h5>
             </Col>
         </Row>

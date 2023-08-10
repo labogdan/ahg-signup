@@ -33,11 +33,8 @@ const Header = () => {
     return (
         <Navbar bg="light" expand="lg">
             <Container>
-                <Navbar.Brand style={{position: 'absolute', right: '0', maxWidth: '300px'}} href="/">
-                    <img src={logo} style={{maxWidth: '300px'}} />
-                </Navbar.Brand>
                 <Navbar.Brand href="/">
-                    <img src={wovenLogo} style={{maxWidth: '300px'}} />
+                    <img src={wovenLogo} style={{maxWidth: '700px'}} />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
