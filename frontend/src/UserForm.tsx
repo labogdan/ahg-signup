@@ -462,25 +462,42 @@ const UserForm = () => {
                             />
 
                             <Form.Check
-                                label="Board Member (Coordinator, Assistant Coordinator)"
-                                name="group1"
-                                type="checkbox"
-                                value="troopcoordinator"
-                            />
-
-                            <Form.Check
-                                label="Board Member (Shepherd, Treasurer)"
-                                name="group1"
-                                type="checkbox"
-                                value="troopshepherdtreasurer"
-                            />
-
-                            <Form.Check
                                 label="Unit Leader"
                                 name="group1"
                                 type="checkbox"
                                 value="unitLeader"
                             />
+
+                            <Form.Check
+                                label="Board Member"
+                                name="group1"
+                                type="checkbox"
+                                value="boardmember"
+                            />
+                                <Form.Check
+                                    label="Troop Coordinator"
+                                    name="group3"
+                                    type="radio"
+                                    value="troopcoordinator"
+                                />
+                                <Form.Check
+                                    label="Assistant TCMember"
+                                    name="group3"
+                                    type="radio"
+                                    value="assistanttc"
+                                />
+                                <Form.Check
+                                    label="Shepherd"
+                                    name="group3"
+                                    type="radio"
+                                    value="shepherd"
+                                />
+                                <Form.Check
+                                    label="Treasurer"
+                                    name="group3"
+                                    type="radio"
+                                    value="reasurer"
+                                />
 
                             <Form.Check
                                 label="Other"
