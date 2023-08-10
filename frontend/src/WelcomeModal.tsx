@@ -16,7 +16,7 @@ function WelcomeModal(props: any) {
             centered
         >
             <Modal.Header closeButton>
-                <img src={woven} style={{maxWidth: '300px'}} />
+                <img src={woven} style={{maxWidth: '150px'}} />
                 <Modal.Title id="contained-modal-title-vcenter">
                     Welcome to AHG VA9020 Signup Portal
                 </Modal.Title>
