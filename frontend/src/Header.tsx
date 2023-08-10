@@ -37,7 +37,7 @@ const Header = () => {
                     <img src={wovenLogo} style={{maxWidth: '700px'}} />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" style={{position: 'relative'}}>
+                <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="justify-content-end" style={{ zIndex:'2000', width: "100%", position: 'absolute', top: '18px', right: '20px' }}>
                         <Button href='/admin'>Admin</Button>
                         <LogoutButton />
