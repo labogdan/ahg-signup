@@ -16,7 +16,7 @@ function WelcomeModal(props: any) {
             centered
         >
             <Modal.Header closeButton>
-                <img src={woven} />
+                <img src={woven} style={{maxWidth: '300px'}} />
                 <Modal.Title id="contained-modal-title-vcenter">
                     Welcome to AHG VA9020 Signup Portal
                 </Modal.Title>
@@ -25,7 +25,7 @@ function WelcomeModal(props: any) {
                 <p>
                     <strong>This is step 3 of the registration process.</strong>
                 </p>
-                <p>Please complete Step 1 and Step 2 - <a href="https://www.ahgfamily.org/login" target="_blank">AHGfamily Website</a> from the registration email first.</p>
+                <p>Please complete Step 1 and Step 2 - <a href="https://www.ahgfamily.org/login" target="_blank">AHGfamily Member Registration</a> first.</p>
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={closeModal}>Close</Button>
