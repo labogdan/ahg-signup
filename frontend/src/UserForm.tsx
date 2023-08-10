@@ -470,26 +470,25 @@ const UserForm = () => {
                             />
 
                             <Form.Check
-                                style={{marginLeft: '1.5rem'}}
-                                label="Troop Coordinator"
+                                label="Troop Coordinator (Board)"
                                 name="group1"
                                 type="checkbox"
                                 value="troopcoordinator"
                             />
                             <Form.Check
-                                label="Assistant Troop Coordinator"
+                                label="Assistant Troop Coordinator (Board)"
                                 name="group1"
                                 type="checkbox"
                                 value="assistanttc"
                             />
                             <Form.Check
-                                label="Shepherd"
+                                label="Shepherd (Board)"
                                 name="group1"
                                 type="checkbox"
                                 value="shepherd"
                             />
                             <Form.Check
-                                label="Treasurer"
+                                label="Treasurer (Board)"
                                 name="group1"
                                 type="checkbox"
                                 value="reasurer"
