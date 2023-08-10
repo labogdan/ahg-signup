@@ -17,15 +17,15 @@ function WelcomeModal(props: any) {
         >
             <Modal.Header closeButton>
                 <img src={woven} style={{maxWidth: '150px'}} />
-                <Modal.Title id="contained-modal-title-vcenter">
-                    Welcome to AHG VA9020 Signup Portal
+                <Modal.Title style={{fontFamily: 'EB Garamond'}} id="contained-modal-title-vcenter">
+                    Welcome friends! We're happy to have ewe here.
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <p>
                     <strong>This is step 3 of the registration process.</strong>
+                    Please complete Step 1 and Step 2 - <a href="https://www.ahgfamily.org/login" target="_blank">AHGfamily Member Registration</a> prior to continuing.
                 </p>
-                <p>Please complete Step 1 and Step 2 - <a href="https://www.ahgfamily.org/login" target="_blank">AHGfamily Member Registration</a> first.</p>
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={closeModal}>Close</Button>
