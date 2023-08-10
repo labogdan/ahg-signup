@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import woven from './image/WOVEN-logo.png';
 
 function WelcomeModal(props: any) {
 
@@ -15,6 +16,7 @@ function WelcomeModal(props: any) {
             centered
         >
             <Modal.Header closeButton>
+                <img src={woven} />
                 <Modal.Title id="contained-modal-title-vcenter">
                     Welcome to AHG VA9020 Signup Portal
                 </Modal.Title>
