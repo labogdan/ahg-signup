@@ -430,6 +430,13 @@ const UserForm = () => {
                                 value="lifeguard"
                             />
 
+                            <Form.Check
+                                label="Registrar"
+                                name="group1"
+                                type="checkbox"
+                                value="registrar"
+                            />
+
                         </Col>
                         <Col>
 
@@ -455,31 +462,17 @@ const UserForm = () => {
                             />
 
                             <Form.Check
-                                label="Board Member (Troop Coordinator, Assistant Troop Coordinator)"
+                                label="Board Member (Coordinator, Assistant Coordinator)"
                                 name="group1"
                                 type="checkbox"
                                 value="troopcoordinator"
                             />
 
                             <Form.Check
-                                label="Board Member (Troop Shepherd, Troop Treasurer)"
+                                label="Board Member (Shepherd, Treasurer)"
                                 name="group1"
                                 type="checkbox"
                                 value="troopshepherdtreasurer"
-                            />
-
-                            <Form.Check
-                                label="Registrar"
-                                name="group1"
-                                type="checkbox"
-                                value="registrar"
-                            />
-
-                            <Form.Check
-                                label="Treasurer"
-                                name="group1"
-                                type="checkbox"
-                                value="treasurer"
                             />
 
                             <Form.Check
