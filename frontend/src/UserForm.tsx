@@ -545,32 +545,34 @@ const UserForm = () => {
                     <Form.Group className="mb-3" >
                             <FloatingLabel
                                 controlId="floatingInput"
-                                label="Family Church Name"
+                                label="Family Church"
                                 className="mb-3"
                             >
                                 <Form.Control
                                     type="text"
                                     name="churchName"
-                                    placeholder="Family Church Name"
+                                    placeholder="Family Church"
                                     value={churchName}
                                     onChange={(e) => handleChurchNameChange(e)}
                                     required
                                 />
+                                <Form.Control.Feedback type="invalid">
+                                    Please enter in the name of your church.
+                                </Form.Control.Feedback>
                             </FloatingLabel>
                         </Form.Group>
                         <Form.Group className="mb-3" >
                             <FloatingLabel
                                 controlId="floatingInput"
-                                label="Website"
+                                label="Website / Physical Address"
                                 className="mb-3"
                             >
                                 <Form.Control
                                     type="text"
                                     name="churchWebsite"
-                                    placeholder="Website"
+                                    placeholder="Website / Physical Address"
                                     value={churchWebsite}
                                     onChange={(e) => handleChurchWebsiteChange(e)}
-                                    required
                                 />
                             </FloatingLabel>
                         </Form.Group>
@@ -590,7 +592,6 @@ const UserForm = () => {
                                     placeholder="Pastor's Name"
                                     value={pastorName}
                                     onChange={(e) => handlePastorNameChange(e)}
-                                    required
                                 />
                             </FloatingLabel>
                         </Form.Group>
@@ -610,6 +611,9 @@ const UserForm = () => {
                                     onChange={(e) => handlePastorPhoneChange(e)}
                                     required
                                 />
+                                <Form.Control.Feedback type="invalid">
+                                    Please enter in the phone number.
+                                </Form.Control.Feedback>
                             </FloatingLabel>
                         </Form.Group>
                     </Col>
@@ -622,7 +626,6 @@ const UserForm = () => {
                     label={(<>I have reviewed the Troop Finances Information on page 10 and 11 of the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">Troop Policy & Guidelines Handbook</a>, and I understand the costs associated with participation in AHG Troop VA9020.</>)}
                     className='mb-3'
                     onChange={(e) => {setTotalShow(true)}}
-                    required
                 />
 
                 {totalShow &&
@@ -691,7 +694,7 @@ const UserForm = () => {
 
                     <>
                         <p>After you submit your registration, you will receive a PayPal invoice for your balance due to the troop. You may pay online or by check to avoid transaction fees. No cash, please.</p>
-                        <p><strong>Troop Dues must be received by August 31, 2023.</strong></p>
+                        <p><strong>Troop dues must be received after one AHG official meeting/event in order to continue participating with our troop.</strong></p>
                         <p>Please provide your PayPal email address and/or email address for other invoicing.</p>
                         <Form.Group className="mb-3">
                             <FloatingLabel
