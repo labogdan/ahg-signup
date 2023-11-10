@@ -42,8 +42,8 @@ exports.getUsers = (req, res, next) => {
 exports.createUser = (req, res, next) => {
 
     const user = [ req.body ]
-    const addString = 'INSERT INTO users (first_name, last_name, age, grade, church_name, church_website, pastor_name, pastor_phone, kroger_participate, kroger_enrolled, volunteer_positions, volunteer_other, parent_name, email_address, is_adult_leader, paypal_address, total_cost) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)';
-    console.log('create uyser');
+    const addString = 'INSERT INTO users (first_name, last_name, age, grade, church_denomination, currently_attending_church, church_name, church_phone, kroger_participate, kroger_enrolled, volunteer_positions, volunteer_other, parent_name, email_address, is_adult_leader, paypal_address, total_cost) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)';
+    console.log('create user');
 
     pool.query(addString, user[[0]])
         .then(result => res.json(result))

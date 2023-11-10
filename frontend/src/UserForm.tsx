@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Container from "react-bootstrap/Container";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
@@ -40,27 +41,28 @@ const UserForm = () => {
     const [payPalAddress, setPayPalAddress] = useState("");
     const [isAdultLeader, setIsAdultLeader] = useState(false);
 
+    const [churchDenomination, setChurchDenomination] = useState("");
+    const [currentlyAttendingChurch, setCurrentlyAttendingChurch] = useState(false);
     const [churchName, setChurchName] = useState("");
-    const [churchWebsite, setChurchWebsite] = useState("");
-    const [pastorName, setPastorName] = useState("");
-    const [pastorPhone, setPastorPhone] = useState("");
+    const [churchPhone, setChurchPhone] = useState("");    
 
     useEffect(() => {
         console.log(totalCost);
     }, [totalCost])
 
-
     const handleChurchNameChange = (event: any) => {
         setChurchName(event.target.value);
     }
-    const handleChurchWebsiteChange = (event: any) => {
-        setChurchWebsite(event.target.value);
+    const handleChurchDenominationChange = (event: any) => {
+        setChurchDenomination(event.target.value);
     }
-    const handlePastorNameChange = (event: any) => {
-        setPastorName(event.target.value);
+    const handleChurchPhoneChange = (event: any) => {
+        setChurchPhone(event.target.value);
     }
-    const handlePastorPhoneChange = (event: any) => {
-        setPastorPhone(event.target.value);
+    const handleCurrentlyAttendingChurchChange = (value: boolean) => {
+        console.log('handleCurrentlyAttendingChurchChange');
+        console.log(value);
+        setCurrentlyAttendingChurch(value);
     }
 
     const addFields = () => {
@@ -149,7 +151,7 @@ const UserForm = () => {
         } else {
             girls.map((value, index) => {
                 try {
-                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, churchName, churchWebsite, pastorName, pastorPhone, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther, parentName, emailAddress, isAdultLeader, payPalAddress, totalCost])
+                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, churchDenomination, currentlyAttendingChurch, churchName, churchPhone, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther, parentName, emailAddress, isAdultLeader, payPalAddress, totalCost])
                         .then( () => {
                             setModalShow(true);
                         })
@@ -303,6 +305,14 @@ const UserForm = () => {
                 </Button>
 
                 <hr/>
+
+                <Form.Check
+                    type="switch"
+                    id="statement-of-faith"
+                    label={(<>I have reviewed and agree to the <a href="https://media.trooptrack.com/troop_documents/70557/document/original/AHG_Statement_of_Faith.pdf" target="_blank">AHG Statement of Faith</a>.</>)}
+                    className='mb-3'
+                    required
+                />
 
                 <Form.Check
                     type="switch"
@@ -541,58 +551,67 @@ const UserForm = () => {
                 <hr />
                 <p>Church Information</p>
                 <Row>
-                    <Col>
-                    <Form.Group className="mb-3" >
-                            <FloatingLabel
-                                controlId="floatingInput"
-                                label="Family Church"
-                                className="mb-3"
-                            >
-                                <Form.Control
-                                    type="text"
-                                    name="churchName"
-                                    placeholder="Family Church"
-                                    value={churchName}
-                                    onChange={(e) => handleChurchNameChange(e)}
-                                    required
-                                />
-                                <Form.Control.Feedback type="invalid">
-                                    Please enter in the name of your church.
-                                </Form.Control.Feedback>
-                            </FloatingLabel>
-                        </Form.Group>
+                    <Col xs={12} md={12}>
                         <Form.Group className="mb-3" >
                             <FloatingLabel
                                 controlId="floatingInput"
-                                label="Website / Physical Address"
+                                label="Church Denomination/Affiliation: Anglican, Baptist, etc...*"
                                 className="mb-3"
                             >
                                 <Form.Control
                                     type="text"
-                                    name="churchWebsite"
-                                    placeholder="Website / Physical Address"
-                                    value={churchWebsite}
-                                    onChange={(e) => handleChurchWebsiteChange(e)}
+                                    name="churchDenomination"
+                                    placeholder="Church Denomination/Affiliation"
+                                    value={churchDenomination}
+                                    onChange={(e) => handleChurchDenominationChange(e)}
+                                    required
                                 />
+                                <Form.Control.Feedback type="invalid">
+                                    Please enter in the name of your church denomination.
+                                </Form.Control.Feedback>
                             </FloatingLabel>
                         </Form.Group>
                     </Col>
+                    </Row>
+                    <Row>
+                    <Col xs={12} md={12}>
+                        Currently Attending? &nbsp;
+                        <ButtonGroup>
+                            <Button
+                                variant={currentlyAttendingChurch ? 'primary' : 'light'}
+                                onClick={() => handleCurrentlyAttendingChurchChange(true)}
+                            >
+                                Yes
+                            </Button>
+                            <Button
+                                variant={currentlyAttendingChurch? 'light' : 'primary'}
+                                onClick={() => handleCurrentlyAttendingChurchChange(false)}
+                            >
+                                No
+                            </Button>
+                        </ButtonGroup>
+                    </Col>
                 </Row>
+                <br />* If you don't go to church, put in 'none' and select 'No'
+                { currentlyAttendingChurch && (
                 <Row>
                     <Col xs={12} md={6}>
                         <Form.Group className="mb-3" >
                             <FloatingLabel
                                 controlId="floatingInput"
-                                label="Pastor's Name"
+                                label="Church Name"
                                 className="mb-3"
                             >
                                 <Form.Control
                                     type="text"
-                                    name="pastorName"
-                                    placeholder="Pastor's Name"
-                                    value={pastorName}
-                                    onChange={(e) => handlePastorNameChange(e)}
+                                    name="churchName"
+                                    placeholder="Church Name"
+                                    value={churchName}
+                                    onChange={(e) => handleChurchNameChange(e)}
                                 />
+                                <Form.Control.Feedback type="invalid">
+                                    Please enter in the name of your church.
+                                </Form.Control.Feedback>
                             </FloatingLabel>
                         </Form.Group>
                     </Col>
@@ -605,11 +624,10 @@ const UserForm = () => {
                             >
                                 <Form.Control
                                     type="tel"
-                                    name="pastorPhone"
+                                    name="churchPhone"
                                     placeholder="Phone Number"
-                                    value={pastorPhone}
-                                    onChange={(e) => handlePastorPhoneChange(e)}
-                                    required
+                                    value={churchPhone}
+                                    onChange={(e) => handleChurchPhoneChange(e)}
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     Please enter in the phone number.
@@ -618,6 +636,7 @@ const UserForm = () => {
                         </Form.Group>
                     </Col>
                 </Row>
+                )}
                 
                 <hr />
                 <Form.Check
