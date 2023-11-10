@@ -8,11 +8,6 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-
-import ToggleButton from "react-bootstrap/ToggleButton";
-import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
-
-
 import Header from "./Header";
 import SuccessModal from "./SuccessModal";
 import WelcomeModal from "./WelcomeModal";
@@ -43,11 +38,30 @@ const UserForm = () => {
     const [volunteerValues, setVolunteerValues] = useState([]);
     const [volunteerOther, setVolunteerOther] = useState("");
     const [payPalAddress, setPayPalAddress] = useState("");
-    const [isAdultLeader, setIsAdultLeader] = useState(false)
+    const [isAdultLeader, setIsAdultLeader] = useState(false);
+
+    const [churchName, setChurchName] = useState("");
+    const [churchWebsite, setChurchWebsite] = useState("");
+    const [pastorName, setPastorName] = useState("");
+    const [pastorPhone, setPastorPhone] = useState("");
 
     useEffect(() => {
         console.log(totalCost);
     }, [totalCost])
+
+
+    const handleChurchNameChange = (event: any) => {
+        setChurchName(event.target.value);
+    }
+    const handleChurchWebsiteChange = (event: any) => {
+        setChurchWebsite(event.target.value);
+    }
+    const handlePastorNameChange = (event: any) => {
+        setPastorName(event.target.value);
+    }
+    const handlePastorPhoneChange = (event: any) => {
+        setPastorPhone(event.target.value);
+    }
 
     const addFields = () => {
         let newfield = {
@@ -135,7 +149,7 @@ const UserForm = () => {
         } else {
             girls.map((value, index) => {
                 try {
-                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther, parentName, emailAddress, isAdultLeader, payPalAddress, totalCost])
+                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, churchName, churchWebsite, pastorName, pastorPhone, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther, parentName, emailAddress, isAdultLeader, payPalAddress, totalCost])
                         .then( () => {
                             setModalShow(true);
                         })
@@ -525,7 +539,83 @@ const UserForm = () => {
                 />
 
                 <hr />
-
+                <p>Church Information</p>
+                <Row>
+                    <Col>
+                    <Form.Group className="mb-3" >
+                            <FloatingLabel
+                                controlId="floatingInput"
+                                label="Family Church Name"
+                                className="mb-3"
+                            >
+                                <Form.Control
+                                    type="text"
+                                    name="churchName"
+                                    placeholder="Family Church Name"
+                                    value={churchName}
+                                    onChange={(e) => handleChurchNameChange(e)}
+                                    required
+                                />
+                            </FloatingLabel>
+                        </Form.Group>
+                        <Form.Group className="mb-3" >
+                            <FloatingLabel
+                                controlId="floatingInput"
+                                label="Website"
+                                className="mb-3"
+                            >
+                                <Form.Control
+                                    type="text"
+                                    name="churchWebsite"
+                                    placeholder="Website"
+                                    value={churchWebsite}
+                                    onChange={(e) => handleChurchWebsiteChange(e)}
+                                    required
+                                />
+                            </FloatingLabel>
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12} md={6}>
+                        <Form.Group className="mb-3" >
+                            <FloatingLabel
+                                controlId="floatingInput"
+                                label="Pastor's Name"
+                                className="mb-3"
+                            >
+                                <Form.Control
+                                    type="text"
+                                    name="pastorName"
+                                    placeholder="Pastor's Name"
+                                    value={pastorName}
+                                    onChange={(e) => handlePastorNameChange(e)}
+                                    required
+                                />
+                            </FloatingLabel>
+                        </Form.Group>
+                    </Col>
+                    <Col xs={12} md={6}>
+                        <Form.Group className="mb-3" >
+                            <FloatingLabel
+                                controlId="floatingInput"
+                                label="Phone Number"
+                                className="mb-3"
+                            >
+                                <Form.Control
+                                    type="tel"
+                                    name="pastorPhone"
+                                    placeholder="Phone Number"
+                                    value={pastorPhone}
+                                    onChange={(e) => handlePastorPhoneChange(e)}
+                                    required
+                                />
+                            </FloatingLabel>
+                        </Form.Group>
+                    </Col>
+                </Row>
+                
+                <hr />
                 <Form.Check
                     type="switch"
                     id="troop-finances"

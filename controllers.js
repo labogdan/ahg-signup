@@ -1,6 +1,6 @@
 const { Pool } = require('pg');
 
-const DB_URL = process.env.DATABASE_URL || 'postgres://yhaldrjyvtauiy:cfe98df02a0874281a267a3b58d669959fd1aaf96e31b4580aa42bc9d5618f9b@ec2-18-214-35-70.compute-1.amazonaws.com:5432/d882a6s32l45oe';
+const DB_URL = process.env.DATABASE_URL || 'postgres://ovxcyjrfxzphmf:5e52ec1388243c42bc38f0d5d819da35b7d8fe461b8b347efe6f291d07e0e691@ec2-3-212-70-5.compute-1.amazonaws.com:5432/dbi6ittt9svgdi';
 
 const pool = new Pool({
     connectionString: DB_URL,
@@ -42,7 +42,8 @@ exports.getUsers = (req, res, next) => {
 exports.createUser = (req, res, next) => {
 
     const user = [ req.body ]
-    const addString = 'INSERT INTO users (first_name, last_name, age, grade, kroger_participate, kroger_enrolled, volunteer_positions, volunteer_other, parent_name, email_address, is_adult_leader, paypal_address, total_cost) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)';
+    const addString = 'INSERT INTO users (first_name, last_name, age, grade, church_name, church_website, pastor_name, pastor_phone, kroger_participate, kroger_enrolled, volunteer_positions, volunteer_other, parent_name, email_address, is_adult_leader, paypal_address, total_cost) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)';
+    console.log('create uyser');
 
     pool.query(addString, user[[0]])
         .then(result => res.json(result))
