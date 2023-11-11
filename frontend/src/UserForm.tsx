@@ -549,13 +549,13 @@ const UserForm = () => {
                 />
 
                 <hr />
-                <p>Church Information</p>
+                <p><b>Church Information</b></p>
                 <Row>
                     <Col xs={12} md={12}>
                         <Form.Group className="mb-3" >
                             <FloatingLabel
                                 controlId="floatingInput"
-                                label="Church Denomination/Affiliation: Anglican, Baptist, etc...*"
+                                label="Church Denomination/Affiliation: Anglican, Baptist, Non-Denominational, etc... (or non-church goer)"
                                 className="mb-3"
                             >
                                 <Form.Control
@@ -575,7 +575,7 @@ const UserForm = () => {
                     </Row>
                     <Row>
                     <Col xs={12} md={12}>
-                        Currently Attending? &nbsp;
+                        Regularly Attending Church Services? &nbsp;
                         <ButtonGroup>
                             <Button
                                 variant={currentlyAttendingChurch ? 'primary' : 'light'}
@@ -592,8 +592,10 @@ const UserForm = () => {
                         </ButtonGroup>
                     </Col>
                 </Row>
-                <br />* If you don't go to church, put in 'none' and select 'No'
+                
                 { currentlyAttendingChurch && (
+                <>
+                <br />
                 <Row>
                     <Col xs={12} md={6}>
                         <Form.Group className="mb-3" >
@@ -636,6 +638,7 @@ const UserForm = () => {
                         </Form.Group>
                     </Col>
                 </Row>
+                </>
                 )}
                 
                 <hr />
