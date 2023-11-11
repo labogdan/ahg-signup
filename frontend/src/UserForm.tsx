@@ -306,6 +306,100 @@ const UserForm = () => {
 
                 <hr/>
 
+                <p><b>Church Information</b></p>
+                <Row>
+                    <Col xs={12} md={12}>
+                        <Form.Group className="mb-3" >
+                            <FloatingLabel
+                                controlId="floatingInput"
+                                label="Church Denomination/Affiliation: Anglican, Baptist, Non-Denominational, etc... (or non-church goer)"
+                                className="mb-3"
+                            >
+                                <Form.Control
+                                    type="text"
+                                    name="churchDenomination"
+                                    placeholder="Church Denomination/Affiliation"
+                                    value={churchDenomination}
+                                    onChange={(e) => handleChurchDenominationChange(e)}
+                                    required
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    Please enter in the name of your church denomination.
+                                </Form.Control.Feedback>
+                            </FloatingLabel>
+                        </Form.Group>
+                    </Col>
+                    </Row>
+                    <Row>
+                    <Col xs={12} md={12}>
+                        Regularly Attending Church Services? &nbsp;
+                        <ButtonGroup>
+                            <Button
+                                variant={currentlyAttendingChurch ? 'primary' : 'light'}
+                                onClick={() => handleCurrentlyAttendingChurchChange(true)}
+                            >
+                                Yes
+                            </Button>
+                            <Button
+                                variant={currentlyAttendingChurch? 'light' : 'primary'}
+                                onClick={() => handleCurrentlyAttendingChurchChange(false)}
+                            >
+                                No
+                            </Button>
+                        </ButtonGroup>
+                    </Col>
+                </Row>
+                
+                { currentlyAttendingChurch && (
+                <>
+                <br />
+                <Row>
+                    <Col xs={12} md={6}>
+                        <Form.Group className="mb-3" >
+                            <FloatingLabel
+                                controlId="floatingInput"
+                                label="Church Name"
+                                className="mb-3"
+                            >
+                                <Form.Control
+                                    type="text"
+                                    name="churchName"
+                                    placeholder="Church Name"
+                                    value={churchName}
+                                    onChange={(e) => handleChurchNameChange(e)}
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    Please enter in the name of your church.
+                                </Form.Control.Feedback>
+                            </FloatingLabel>
+                        </Form.Group>
+                    </Col>
+                    <Col xs={12} md={6}>
+                        <Form.Group className="mb-3" >
+                            <FloatingLabel
+                                controlId="floatingInput"
+                                label="Phone Number"
+                                className="mb-3"
+                            >
+                                <Form.Control
+                                    type="tel"
+                                    name="churchPhone"
+                                    placeholder="Phone Number"
+                                    value={churchPhone}
+                                    onChange={(e) => handleChurchPhoneChange(e)}
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    Please enter in the phone number.
+                                </Form.Control.Feedback>
+                            </FloatingLabel>
+                        </Form.Group>
+                    </Col>
+                </Row>
+                </>
+                )}
+                
+                <hr />
+                <p><b>AHG Policies</b></p>
                 <Form.Check
                     type="switch"
                     id="statement-of-faith"
@@ -379,6 +473,7 @@ const UserForm = () => {
                 )}
 
                 <hr />
+                <p><b>Service</b></p>
                 <p className="mb-3">Please select all volunteer areas of interest or experience.</p>
 
                 <Form.Group onChange={(e) => { handleVolunteerChange(e)}} className="mb-3">
@@ -549,99 +644,8 @@ const UserForm = () => {
                 />
 
                 <hr />
-                <p><b>Church Information</b></p>
-                <Row>
-                    <Col xs={12} md={12}>
-                        <Form.Group className="mb-3" >
-                            <FloatingLabel
-                                controlId="floatingInput"
-                                label="Church Denomination/Affiliation: Anglican, Baptist, Non-Denominational, etc... (or non-church goer)"
-                                className="mb-3"
-                            >
-                                <Form.Control
-                                    type="text"
-                                    name="churchDenomination"
-                                    placeholder="Church Denomination/Affiliation"
-                                    value={churchDenomination}
-                                    onChange={(e) => handleChurchDenominationChange(e)}
-                                    required
-                                />
-                                <Form.Control.Feedback type="invalid">
-                                    Please enter in the name of your church denomination.
-                                </Form.Control.Feedback>
-                            </FloatingLabel>
-                        </Form.Group>
-                    </Col>
-                    </Row>
-                    <Row>
-                    <Col xs={12} md={12}>
-                        Regularly Attending Church Services? &nbsp;
-                        <ButtonGroup>
-                            <Button
-                                variant={currentlyAttendingChurch ? 'primary' : 'light'}
-                                onClick={() => handleCurrentlyAttendingChurchChange(true)}
-                            >
-                                Yes
-                            </Button>
-                            <Button
-                                variant={currentlyAttendingChurch? 'light' : 'primary'}
-                                onClick={() => handleCurrentlyAttendingChurchChange(false)}
-                            >
-                                No
-                            </Button>
-                        </ButtonGroup>
-                    </Col>
-                </Row>
                 
-                { currentlyAttendingChurch && (
-                <>
-                <br />
-                <Row>
-                    <Col xs={12} md={6}>
-                        <Form.Group className="mb-3" >
-                            <FloatingLabel
-                                controlId="floatingInput"
-                                label="Church Name"
-                                className="mb-3"
-                            >
-                                <Form.Control
-                                    type="text"
-                                    name="churchName"
-                                    placeholder="Church Name"
-                                    value={churchName}
-                                    onChange={(e) => handleChurchNameChange(e)}
-                                />
-                                <Form.Control.Feedback type="invalid">
-                                    Please enter in the name of your church.
-                                </Form.Control.Feedback>
-                            </FloatingLabel>
-                        </Form.Group>
-                    </Col>
-                    <Col xs={12} md={6}>
-                        <Form.Group className="mb-3" >
-                            <FloatingLabel
-                                controlId="floatingInput"
-                                label="Phone Number"
-                                className="mb-3"
-                            >
-                                <Form.Control
-                                    type="tel"
-                                    name="churchPhone"
-                                    placeholder="Phone Number"
-                                    value={churchPhone}
-                                    onChange={(e) => handleChurchPhoneChange(e)}
-                                />
-                                <Form.Control.Feedback type="invalid">
-                                    Please enter in the phone number.
-                                </Form.Control.Feedback>
-                            </FloatingLabel>
-                        </Form.Group>
-                    </Col>
-                </Row>
-                </>
-                )}
-                
-                <hr />
+                <p><b>Financial</b></p>
                 <Form.Check
                     type="switch"
                     id="troop-finances"
