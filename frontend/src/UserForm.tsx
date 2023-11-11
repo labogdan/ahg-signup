@@ -411,7 +411,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="policy-guidelines"
-                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">AHG VA9020 Troop Policy & Guidelines Handbook</a> for the 2023-2024 program year, and agree to the Troop Policies and Guidelines contained therein.</>)}
+                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">Troop VA9020 Troop Orientation Packet</a> for the 2023-2024 program year, and agree to the Troop Policies and Guidelines contained therein.</>)}
                     className='mb-3'
                     required
                 />
@@ -419,7 +419,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="parent-participation"
-                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">Parent Participation Policy</a> on page 9 of the Troop Policy & Guidelines Handbook, and agree to actively participate in the Troop and contribute to the Troop's success.</>)}
+                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">Parent Participation Policy</a> on page 9 of the Troop VA9020 Troop Orientation Packet, and agree to actively participate in the Troop and contribute to the Troop's success.</>)}
                     className='mb-3'
                     onChange={(e) => showParentInfo(e)}
                     required
