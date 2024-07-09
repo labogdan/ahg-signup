@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import woven from './image/WOVEN-sheep.png';
+import owl from './image/VISION-owl.png';
 
 function WelcomeModal(props: any) {
 
@@ -16,10 +16,10 @@ function WelcomeModal(props: any) {
             centered
         >
             <Modal.Header closeButton>
-                <img src={woven} style={{maxWidth: '150px'}} />
+                <img src={owl} style={{maxWidth: '150px'}} />
                 <Modal.Title style={{fontFamily: 'EB Garamond'}} id="contained-modal-title-vcenter">
-                    <h1>Welcome friends!</h1>
-                    <h3> We're happy to have ewe here.</h3>
+                    <h1>Welcome Girls!</h1>
+                    <h3> We're excited to see you!</h3>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

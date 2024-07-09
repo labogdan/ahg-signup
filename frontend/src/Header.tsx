@@ -6,8 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from "react-bootstrap/Button";
 
-import logo from './image/ahg-horizontal.jpg';
-import wovenLogo from './image/WOVEN-logo-resize.png';
+import visionLogo from './image/VISION-header.png';
 
 const LoginButton = () => {
     const { loginWithRedirect } = useAuth0();
@@ -31,10 +30,10 @@ const LogoutButton = () => {
 
 const Header = () => {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="none" expand="lg">
             <Container>
                 <Navbar.Brand href="/">
-                    <img src={wovenLogo} style={{maxWidth: '700px'}} />
+                    <img src={visionLogo} style={{width: '110%'}} />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
