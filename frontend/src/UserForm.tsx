@@ -14,6 +14,14 @@ import SuccessModal from "./SuccessModal";
 import WelcomeModal from "./WelcomeModal";
 import Total from "./Total";
 
+type Girl = {
+    firstName: string,
+    lastName: string,
+    age: string,
+    grade: string
+}
+
+
 const UserForm = () => {
     const [girls, setGirls] = useState([
         {
