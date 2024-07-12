@@ -506,7 +506,7 @@ const UserForm = () => {
                     <Row>
                         <Col>
                             <Form.Check
-                                label="Ongoing Administrative / Record Keeping"
+                                label="Administrative (Ongoing) / Record Keeping"
                                 name="group1"
                                 type="checkbox"
                                 value="advancementrecords"
@@ -577,7 +577,7 @@ const UserForm = () => {
 
 
                             <Form.Check
-                                label="Service Project Team"
+                                label="Service Projects Team"
                                 name="group1"
                                 type="checkbox"
                                 value="serviceProject"
@@ -686,20 +686,20 @@ const UserForm = () => {
                     
                     
                     <Row>
-                        <Col xs={9}>
+                        <Col xs={10}>
                         <Form.Group onChange={(e) => { handleLeaderChange(e)}} className="mb-3">
                             <Form.Check inline
-                                label="Troop Coordinator"
+                                label="Unit Leader"
                                 name="group1"
                                 type="radio"
-                                value="troopCoordinator"
+                                value="UnitLeader"
                             />
 
                             <Form.Check inline
-                                label="Assistant Troop Coordinator"
+                                label="Assistant Unit Leader"
                                 name="group1"
                                 type="radio"
-                                value="assistantTroopCoordinator"
+                                value="AssistantUnitLeader"
                             />
 
                             <Form.Check inline
@@ -710,7 +710,7 @@ const UserForm = () => {
                             />
                             </Form.Group>
                         </Col>
-                        <Col xs={3}>
+                        <Col xs={4}>
                             <Form.Control
                                 type="text"
                                 name="other"
@@ -801,7 +801,7 @@ const UserForm = () => {
 
                     <>
                         <p>After you submit your registration, you will receive a PayPal invoice for your balance due to the troop. You may pay online or by check to avoid transaction fees. No cash, please.</p>
-                        <p><strong>Both AHGfamily Member registration (corporate) and Local VA9020 Troop Dues must be paid (PayPal preferred) in full in order to hold your spot(s) in the Troop.  Payment and forms are due on the first official meeting of the year, Monday, August 26th, 2024.</strong></p>
+                        <p><strong>Both AHGfamily Member registration (corporate) and Local VA9020 Troop Dues must be paid (PayPal preferred) in full in order to hold your spot(s) in the Troop.  Payment and forms are due on Monday, August 26th, 2024.</strong></p>
                         <p>Please provide your PayPal email address and/or email address for other invoicing.</p>
                         <Form.Group className="mb-3">
                             <FloatingLabel
