@@ -437,7 +437,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="policy-guidelines"
-                    label={(<>I have reviewed the <a href="https://styles.trooptrack.com/troop_documents/71592/document/original/AHG_VA9020_Orientation___Policy_Manual_2024-2025.pdf" target="blank">Troop VA9020 Troop Orientation and Policy Manual</a> for the 2024-2025 program year, and agree to the Troop Policies and Guidelines contained therein.</>)}
+                    label={(<>I have reviewed the <a href="https://styles.trooptrack.com/troop_documents/71700/document/original/AHG_VA9020_Orientation___Policy_Manual_2024-2025-Final.pdf" target="blank">Troop VA9020 Troop Orientation and Policy Manual</a> for the 2024-2025 program year, and agree to the Troop Policies and Guidelines contained therein.</>)}
                     className='mb-3'
                     required
                 />
@@ -445,7 +445,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="parent-participation"
-                    label={(<>I have reviewed the <a href="https://styles.trooptrack.com/troop_documents/71592/document/original/AHG_VA9020_Orientation___Policy_Manual_2024-2025.pdf" target="_blank">Family Responsibilities</a> section on page 7 of the Troop VA9020 Troop Orientation and Policy Manual, and agree to actively participate in the Troop and contribute to the Troop's success.</>)}
+                    label={(<>I have reviewed the <a href="https://styles.trooptrack.com/troop_documents/71700/document/original/AHG_VA9020_Orientation___Policy_Manual_2024-2025-Final.pdf" target="_blank">Family Responsibilities</a> section on page 7 of the Troop VA9020 Troop Orientation and Policy Manual, and agree to actively participate in the Troop and contribute to the Troop's success.</>)}
                     className='mb-3'
                     onChange={(e) => showParentInfo(e)}
                     required
@@ -730,7 +730,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="troop-finances"
-                    label={(<>I have reviewed the Finance section, pages 8-11 of the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">Policy Manual</a>, and I understand the costs associated with participation in AHG Troop VA9020.</>)}
+                    label={(<>I have reviewed the Finance section, pages 8-11 of the <a href="https://styles.trooptrack.com/troop_documents/71700/document/original/AHG_VA9020_Orientation___Policy_Manual_2024-2025-Final.pdf" target="_blank">Policy Manual</a>, and I understand the costs associated with participation in AHG Troop VA9020.</>)}
                     className='mb-3'
                     onChange={(e) => {setTotalShow(true)}}
                 />
