@@ -146,6 +146,16 @@ const UserForm = () => {
         }
     }
 
+    const handleLeaderChange = (event: any) => {
+        if (event.target.checked === true) {
+            setVolunteerValues(volunteerValues => volunteerValues.concat(event.target.value))
+        } else {
+            setVolunteerValues(volunteerValues.filter(item => item !== event.target.value))
+
+        }
+    }
+
+
     const handleOtherChange = (event: any) => {
         setVolunteerOther(event.target.value);
     }
@@ -488,7 +498,7 @@ const UserForm = () => {
                     <Row>
                         <Col>
                             <Form.Check
-                                label="Advancement / Records"
+                                label="Ongoing Administrative / Record Keeping"
                                 name="group1"
                                 type="checkbox"
                                 value="advancementrecords"
@@ -516,7 +526,7 @@ const UserForm = () => {
                             />
 
                             <Form.Check
-                                label="Fundraising Coordinator"
+                                label="Fundraising Team"
                                 name="group1"
                                 type="checkbox"
                                 value="fundraising"
@@ -544,22 +554,22 @@ const UserForm = () => {
                             />
 
                             <Form.Check
-                                label="Outdoor Activities Coordinator"
+                                label="Outdoor Activities Team"
                                 name="group1"
                                 type="checkbox"
                                 value="outdooractivities"
                             />
 
                             <Form.Check
-                                label="Registrar"
+                                label="Security Team"
                                 name="group1"
                                 type="checkbox"
-                                value="registrar"
+                                value="securityTeam"
                             />
 
 
                             <Form.Check
-                                label="Service Project Coordinator"
+                                label="Service Project Team"
                                 name="group1"
                                 type="checkbox"
                                 value="serviceProject"
@@ -569,7 +579,7 @@ const UserForm = () => {
                         <Col>
 
                             <Form.Check
-                                label="Setup / Teardown"
+                                label="Setup / Teardown Team"
                                 name="group1"
                                 type="checkbox"
                                 value="setupCleanupTeam"
@@ -583,10 +593,17 @@ const UserForm = () => {
                             />
 
                             <Form.Check
-                                label="Special Events Helper"
+                                label="Special Events Team"
                                 name="group1"
                                 type="checkbox"
                                 value="special_eventsCoordinator"
+                            />
+
+                            <Form.Check
+                                label="Troop Registrar"
+                                name="group1"
+                                type="checkbox"
+                                value="registrar"
                             />
 
                             <Form.Check
@@ -609,13 +626,13 @@ const UserForm = () => {
                                 value="assistanttc"
                             />
                             <Form.Check
-                                label="Shepherd (Board)"
+                                label="Troop Shepherd (Board)"
                                 name="group1"
                                 type="checkbox"
                                 value="shepherd"
                             />
                             <Form.Check
-                                label="Treasurer (Board)"
+                                label="Troop Treasurer (Board)"
                                 name="group1"
                                 type="checkbox"
                                 value="reasurer"
@@ -643,13 +660,47 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="adult-leader"
-                    label={(<>The Board and I have discussed and agreed that this coming troop year 2023-2024, I have a Key Role Volunteer Position (Unit Leader, Assistant Unit Leader, Specified Other). I have already paid my AHG Adult Member Registration in AHGfamily. Please deduct my Adult Member Registration ($40) from my total Troop Dues.</>)}
+                    label={(<><b>PLEASE READ</b>: The Board and I have discussed and agreed that this coming troop year, I have a Key Role Volunteer Position (Unit Leader, Assistant Unit Leader, Specified Other). I have already paid my AHG Adult Member Registration in AHGfamily. Please deduct my Adult Member Registration ($40) from my total Troop Dues.</>)}
                     className='mb-3'
                     checked={isAdultLeader}
                     onChange={(e) => {
                         handleAdultLeader(e)
                     }}
                 />
+                <Form.Group onChange={(e) => { handleLeaderChange(e)}} className="mb-3">
+                    <Row>
+                        <Col>
+                            <Form.Check
+                                label="Advancement / Records"
+                                name="group1"
+                                type="checkbox"
+                                value="advancementrecords"
+                            />
+
+                            <Form.Check
+                                label="Assistant Unit Leader"
+                                name="group1"
+                                type="checkbox"
+                                value="assistantleader"
+                            />
+
+                            <Form.Check
+                                label="Childcare Team"
+                                name="group1"
+                                type="checkbox"
+                                value="childcare"
+                            />
+                            <Form.Control
+                                type="text"
+                                name="other"
+                                placeholder="Please Specify"
+                                onChange={(e) => handleOtherChange(e)}
+                                value={volunteerOther}
+                            />
+                        </Col>
+                    </Row>
+
+                </Form.Group>
 
                 <hr />
                 
@@ -728,7 +779,7 @@ const UserForm = () => {
 
                     <>
                         <p>After you submit your registration, you will receive a PayPal invoice for your balance due to the troop. You may pay online or by check to avoid transaction fees. No cash, please.</p>
-                        <p><strong>Both AHGfamily corporate registration and Local VA9020 Troop Dues must be paid in full in order to hold your spot(s) in the Troop. The deadline to Register and pay is Monday, August 26th. We accept e-payments only via PayPal (preferred) or by check at the first official meeting of the year, Monday, August 26th.</strong></p>
+                        <p><strong>Both AHGfamily Member registration (corporate) and Local VA9020 Troop Dues must be paid (PayPal preferred) in full in order to hold your spot(s) in the Troop.  Payment and forms are due on the first official meeting of the year, Monday, August 26th, 2024.</strong></p>
                         <p>Please provide your PayPal email address and/or email address for other invoicing.</p>
                         <Form.Group className="mb-3">
                             <FloatingLabel
