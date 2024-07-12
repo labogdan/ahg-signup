@@ -320,7 +320,7 @@ const UserForm = () => {
                         <Form.Group className="mb-3" >
                             <FloatingLabel
                                 controlId="floatingInput"
-                                label="Church Denomination/Affiliation: Anglican, Baptist, Non-Denominational, etc... (or non-church goer)"
+                                label="Local church name and address"
                                 className="mb-3"
                             >
                                 <Form.Control
@@ -332,7 +332,7 @@ const UserForm = () => {
                                     required
                                 />
                                 <Form.Control.Feedback type="invalid">
-                                    Please enter in the name of your church denomination.
+                                    Please enter in the name and address of your church.
                                 </Form.Control.Feedback>
                             </FloatingLabel>
                         </Form.Group>
@@ -366,13 +366,13 @@ const UserForm = () => {
                         <Form.Group className="mb-3" >
                             <FloatingLabel
                                 controlId="floatingInput"
-                                label="Church Name"
+                                label="Pastor Name"
                                 className="mb-3"
                             >
                                 <Form.Control
                                     type="text"
                                     name="churchName"
-                                    placeholder="Church Name"
+                                    placeholder="Pastor Name"
                                     value={churchName}
                                     onChange={(e) => handleChurchNameChange(e)}
                                 />
@@ -419,7 +419,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="policy-guidelines"
-                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">Troop VA9020 Troop Orientation Packet</a> for the 2023-2024 program year, and agree to the Troop Policies and Guidelines contained therein.</>)}
+                    label={(<>I have reviewed the <a href="https://styles.trooptrack.com/troop_documents/71592/document/original/AHG_VA9020_Orientation___Policy_Manual_2024-2025.pdf" target="blank">Troop VA9020 Troop Orientation and Policy Manual</a> for the 2024-2025 program year</>)}
                     className='mb-3'
                     required
                 />
@@ -427,7 +427,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="parent-participation"
-                    label={(<>I have reviewed the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">Parent Participation Policy</a> on page 9 of the Troop VA9020 Troop Orientation Packet, and agree to actively participate in the Troop and contribute to the Troop's success.</>)}
+                    label={(<>I have reviewed the <a href="https://styles.trooptrack.com/troop_documents/71592/document/original/AHG_VA9020_Orientation___Policy_Manual_2024-2025.pdf" target="_blank">Family Responsibilities</a> section on page 7 of the Troop VA9020 Troop Orientation and Policy Manual, and agree to actively participate in the Troop and contribute to the Troop's success.</>)}
                     className='mb-3'
                     onChange={(e) => showParentInfo(e)}
                     required
@@ -657,7 +657,7 @@ const UserForm = () => {
                 <Form.Check
                     type="switch"
                     id="troop-finances"
-                    label={(<>I have reviewed the Troop Finances Information on page 10 and 11 of the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">Troop Policy & Guidelines Handbook</a>, and I understand the costs associated with participation in AHG Troop VA9020.</>)}
+                    label={(<>I have reviewed the Finance section, pages 8-11 of the <a href="https://media.trooptrack.com/troop_documents/69759/document/original/AHG_VA9020_Orientation_Packet_2023-2024.pdf" target="_blank">Policy Manual</a>.</>)}
                     className='mb-3'
                     onChange={(e) => {setTotalShow(true)}}
                 />
@@ -728,7 +728,7 @@ const UserForm = () => {
 
                     <>
                         <p>After you submit your registration, you will receive a PayPal invoice for your balance due to the troop. You may pay online or by check to avoid transaction fees. No cash, please.</p>
-                        <p><strong>Troop dues must be received after one AHG official meeting/event in order to continue participating with our troop.</strong></p>
+                        <p><strong>Both AHGfamily corporate registration and Local VA9020 Troop Dues must be paid in full in order to hold your spot(s) in the Troop. The deadline to Register and pay is Monday, August 26th. We accept e-payments only via PayPal (preferred) or by check at the first official meeting of the year, Monday, August 26th.</strong></p>
                         <p>Please provide your PayPal email address and/or email address for other invoicing.</p>
                         <Form.Group className="mb-3">
                             <FloatingLabel

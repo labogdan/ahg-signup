@@ -18,7 +18,7 @@ function WelcomeModal(props: any) {
         >
             <Modal.Header style={{maxHeight: '200px'}} >
                 <img src={glasses} style={{width: '300px'}} />
-                <Modal.Title style={{fontFamily: 'EB Garamond'}} id="contained-modal-title-vcenter">
+                <Modal.Title style={{fontFamily: 'EB Garamond', width: '400px'}} id="contained-modal-title-vcenter">
                     <h1>Welcome Girls!</h1>
                     <h3> We're excited to see you!</h3>
                 </Modal.Title>
