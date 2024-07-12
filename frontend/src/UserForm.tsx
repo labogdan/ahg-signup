@@ -801,7 +801,7 @@ const UserForm = () => {
 
                     <>
                         <p>After you submit your registration, you will receive a PayPal invoice for your balance due to the troop. You may pay online or by check to avoid transaction fees. No cash, please.</p>
-                        <p><strong>Both AHGfamily Member registration (corporate) and Local VA9020 Troop Dues must be paid (PayPal preferred) in full in order to hold your spot(s) in the Troop.  Payment and forms are due on Monday, August 26th, 2024.</strong></p>
+                        <p><strong>Both AHGfamily Member registration and local VA9020 Troop dues must be completed and paid (PayPal preferred) in full in order to hold your spot(s) in the Troop. Payments and forms are due at the first AHG meeting, Monday, August 26th, 2024.</strong></p>
                         <p>Please provide your PayPal email address and/or email address for other invoicing.</p>
                         <Form.Group className="mb-3">
                             <FloatingLabel
