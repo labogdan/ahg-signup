@@ -11,15 +11,20 @@ const pool = new Pool({
 
 exports.getUsers = (req, res, next) => {
 
-    const getString = 'SELECT * FROM users ORDER BY id DESC';
+    const getString = 'SELECT * FROM users';
+    console.log('getting users')
+    console.log(getString)
     pool.query(getString)
         .then(results => {
             let users = results.rows;
             res.json({ users })
         })
-        .catch(err => { return res.status(400).send({
+        .catch(err => { 
+            console.log(err)
+            return res.status(400).send({
             message: err
-         })});
+            })
+        });
 
     /*res.status(200).json({
         users: [
@@ -39,16 +44,61 @@ exports.getUsers = (req, res, next) => {
     });*/
 };
 
+
+/*
+
+exports.createUser = (req, res, next) => {
+    const user = req.body;  // Assuming req.body is already the array sent from front-end
+    const addString = 'INSERT INTO users (first_name, last_name, age, grade, church_denomination, currently_attending_church, church_name, church_phone, kroger_participate, kroger_enrolled, volunteer_positions, volunteer_other, leader_value, specified_other, parent_name, email_address, is_adult_leader, paypal_address, total_cost) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)';
+    
+    console.log('create user');
+    console.log(addString);
+    console.log(user);
+
+    // Prepare values array based on the order in your INSERT statement
+    const values = [
+        user[0],  // first_name
+        user[1],  // last_name
+        parseInt(user[2]),  // age (assuming it should be an integer)
+        parseInt(user[3]),  // grade (assuming it should be an integer)
+        user[4],  // church_denomination
+        user[5],  // currently_attending_church (boolean)
+        user[6],  // church_name
+        user[7],  // church_phone
+        user[8],  // kroger_participate (boolean)
+        user[9],  // kroger_enrolled (boolean)
+        user[10][0],  // volunteer_positions (assuming it's an array with one element)
+        user[11],  // volunteer_other
+        user[12],  // leader_value
+        user[13],  // specified_other
+        user[14],  // parent_name
+        user[15],  // email_address
+        user[16],  // is_adult_leader (boolean)
+        user[17],  // paypal_address
+        parseInt(user[18])  // total_cost (assuming it should be an integer)
+    ];
+
+    console.log(values);
+
+    pool.query(addString, values)
+        .then(result => res.json(result))
+        .catch(err => {
+            console.error('Error executing query:', err);
+            return res.status(400).send({
+                message: err.message
+            });
+        });
+};*/
+
 exports.createUser = (req, res, next) => {
 
     const user = [ req.body ]
-    //const addString = 'INSERT INTO users (first_name, last_name, age, grade, church_denomination, currently_attending_church, church_name, church_phone, kroger_participate, kroger_enrolled, volunteer_positions, volunteer_other, leader_value, specified_other, parent_name, email_address, is_adult_leader, paypal_address, total_cost) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)';
-    const addString = 'INSERT INTO users (first_name, last_name) VALUES ($1, $2)';
+    const addString = 'INSERT INTO users (first_name, last_name, age, grade, church_denomination, currently_attending_church, church_name, church_phone, kroger_participate, kroger_enrolled, volunteer_positions, volunteer_other, leader_value, specified_other, parent_name, email_address, is_adult_leader, paypal_address, total_cost) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)';
     console.log('create user');
     console.log(addString);
     console.log(req.body)
 
-    pool.query(addString, user[[0]])
+    pool.query(addString, user[0])
         .then(result => res.json(result))
         .catch(err => { return res.status(400).send({
             message: err

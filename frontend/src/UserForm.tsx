@@ -338,7 +338,7 @@ const UserForm = () => {
                         <Form.Group className="mb-3" >
                             <FloatingLabel
                                 controlId="floatingInput"
-                                label="Local church name and address"
+                                label="Local church and address (n/a if you do not attend church)"
                                 className="mb-3"
                             >
                                 <Form.Control
