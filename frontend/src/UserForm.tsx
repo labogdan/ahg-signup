@@ -46,6 +46,8 @@ const UserForm = () => {
     const [krogerEnrolledValue, setKrogerEnrolledValue] = useState(false);
     const [volunteerValues, setVolunteerValues] = useState([]);
     const [volunteerOther, setVolunteerOther] = useState("");
+    const [leaderValue, setLeaderValue] = useState([]);
+    const [specifiedOther, setSpecifiedOther] = useState("");
     const [payPalAddress, setPayPalAddress] = useState("");
     const [isAdultLeader, setIsAdultLeader] = useState(false);
 
@@ -147,18 +149,23 @@ const UserForm = () => {
     }
 
     const handleLeaderChange = (event: any) => {
-        if (event.target.checked === true) {
-            setVolunteerValues(volunteerValues => volunteerValues.concat(event.target.value))
-        } else {
-            setVolunteerValues(volunteerValues.filter(item => item !== event.target.value))
-
-        }
+        console.log('leader change ' + event.target.defaultValue)
+        console.log(' ')
+        setLeaderValue(event.target.defaultValue)
     }
 
 
     const handleOtherChange = (event: any) => {
         setVolunteerOther(event.target.value);
     }
+
+    const handleSpecifiedChange = (event: any) => {
+        console.log('specified change ' + event.target.value)
+        console.log(' ')
+        setSpecifiedOther(event.target.value);
+    }
+    
+
 
     let handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -169,7 +176,8 @@ const UserForm = () => {
         } else {
             girls.map((value, index) => {
                 try {
-                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, churchDenomination, currentlyAttendingChurch, churchName, churchPhone, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther, parentName, emailAddress, isAdultLeader, payPalAddress, totalCost])
+                    console.log('creating user: ' + [value.firstName, value.lastName, value.age, value.grade, churchDenomination, currentlyAttendingChurch, churchName, churchPhone, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther, leaderValue, specifiedOther, parentName, emailAddress, isAdultLeader, payPalAddress, totalCost])
+                    UserService.createUser([value.firstName, value.lastName, value.age, value.grade, churchDenomination, currentlyAttendingChurch, churchName, churchPhone, krogerParticipateValue, krogerEnrolledValue, volunteerValues, volunteerOther, leaderValue, specifiedOther, parentName, emailAddress, isAdultLeader, payPalAddress, totalCost])
                         .then( () => {
                             setModalShow(true);
                         })
@@ -657,6 +665,12 @@ const UserForm = () => {
 
                 </Form.Group>
 
+                <hr />
+                
+                <p><b>Financial</b></p>
+                
+                
+                
                 <Form.Check
                     type="switch"
                     id="adult-leader"
@@ -667,44 +681,52 @@ const UserForm = () => {
                         handleAdultLeader(e)
                     }}
                 />
-                <Form.Group onChange={(e) => { handleLeaderChange(e)}} className="mb-3">
+                { isAdultLeader && (
+                    <>
+                    
+                    
                     <Row>
-                        <Col>
-                            <Form.Check
-                                label="Advancement / Records"
+                        <Col xs={9}>
+                        <Form.Group onChange={(e) => { handleLeaderChange(e)}} className="mb-3">
+                            <Form.Check inline
+                                label="Troop Coordinator"
                                 name="group1"
-                                type="checkbox"
-                                value="advancementrecords"
+                                type="radio"
+                                value="troopCoordinator"
                             />
 
-                            <Form.Check
-                                label="Assistant Unit Leader"
+                            <Form.Check inline
+                                label="Assistant Troop Coordinator"
                                 name="group1"
-                                type="checkbox"
-                                value="assistantleader"
+                                type="radio"
+                                value="assistantTroopCoordinator"
                             />
 
-                            <Form.Check
-                                label="Childcare Team"
+                            <Form.Check inline
+                                label="Specified Other"
                                 name="group1"
-                                type="checkbox"
-                                value="childcare"
+                                type="radio"
+                                value="specifiedOther"
                             />
+                            </Form.Group>
+                        </Col>
+                        <Col xs={3}>
                             <Form.Control
                                 type="text"
                                 name="other"
-                                placeholder="Please Specify"
-                                onChange={(e) => handleOtherChange(e)}
-                                value={volunteerOther}
+                                placeholder="Specified Other"
+                                onChange={(e) => handleSpecifiedChange(e)}
+                                value={specifiedOther}
                             />
                         </Col>
                     </Row>
 
-                </Form.Group>
-
-                <hr />
                 
-                <p><b>Financial</b></p>
+
+                    </>
+                    
+                )}
+                
                 <Form.Check
                     type="switch"
                     id="troop-finances"
