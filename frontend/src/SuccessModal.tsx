@@ -27,7 +27,7 @@ function SuccessModal(props: any) {
             <Modal.Body>
                 <h4>Your troop registration has been submitted.</h4>
                 <p>
-                    Welcome to AHG Troop 9020.  We look forward to seeing you soon.
+                    Welcome to AHG Troop VA9020.  We look forward to seeing you soon.
                 </p>
             </Modal.Body>
             <Modal.Footer>
